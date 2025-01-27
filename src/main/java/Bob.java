@@ -80,6 +80,9 @@ public class Bob {
             case "event":
                 message = addEvent(userInput);
                 break;
+            case "delete":
+                message = delete(userInput);
+                break;
             default:
                 throw new IllegalCommandException("I'm sorry, I don't understand that command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
         }
@@ -303,6 +306,35 @@ public class Bob {
             }
         }
         message = "I have marked this task as not done, get on it!\n" + tasks.get(idx);
+
+        return message;
+    }
+
+    public String delete(String[] userInput) throws IllegalCommandException {
+        String message = "";
+
+        if (userInput.length != 2) {
+            throw new IllegalCommandException("I'm sorry, the proper usage of the delete command is 'delete <index>'. Please try again!");
+        }
+
+        int idx;
+
+        try {
+            idx = Integer.parseInt(userInput[1]) - 1;
+        } catch (NumberFormatException e) {
+            throw new IllegalCommandException("I'm sorry, the index of the task to delete must be a number. The proper usage of the delete command is 'delete <index>'. Please try again!");
+        }
+
+        try {
+            Task removedTask = tasks.remove(idx);
+            message = "I have removed this task from your list:\n" + removedTask;
+        } catch (IndexOutOfBoundsException e) {
+            if (tasks.isEmpty()) {
+                throw new IllegalCommandException("I'm sorry, you have no tasks in your list to delete. Please add some tasks first!");
+            } else {
+                throw new IllegalCommandException("I'm sorry, the number of the task to delete must be within 1 and " + tasks.size() + ". Please try again!");
+            }
+        }
 
         return message;
     }
