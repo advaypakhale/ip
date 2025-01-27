@@ -1,0 +1,10 @@
+todo a
+todo b
+deadline ten /by friday
+event party /from morning /to evening
+mark 3
+list
+mark 2
+unmark 3
+list
+bye
