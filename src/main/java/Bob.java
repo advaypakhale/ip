@@ -34,15 +34,18 @@ public class Bob {
 
     public void processUserInput(String[] userInput) {
 
+        String message;
         String command = userInput[0];
 
         if (command.equals("bye") && userInput.length == 1) {
-            exit();
+            message = exit();
         } else if (command.equals("list") && userInput.length == 1) {
-            list();
+            message = list();
         } else {
-            add(userInput);
+            message = add(userInput);
         }
+
+        encapsulateSection(message);
     }
 
     public void encapsulateSection(String message) {
@@ -51,7 +54,7 @@ public class Bob {
         System.out.println("-----------------------------");
     }
 
-    public void greet() {
+    public String greet() {
         String message = "";
 
         String logo = """
@@ -66,33 +69,33 @@ public class Bob {
         message += "Hello! I'm Bob, but you can call me Bob.\n";
         message += "What can I do for you on this fine day?";
 
-        encapsulateSection(message);
+        return message;
     }
 
-    public void exit() {
+    public String exit() {
         String message = "Goodbye! Have a great day!";
         isActive = false;
-        encapsulateSection(message);
+        return message;
     }
 
-    public void echo(String[] userInput) {
+    public String echo(String[] userInput) {
         String message = String.join(" ", userInput);
-        encapsulateSection(message);
+        return message;
     }
 
-    public void list() {
+    public String list() {
         StringBuilder message = new StringBuilder("Here are the items in your list:\n");
         for (int i = 0; i < inputs.size(); ++i) {
             message.append((i + 1)).append(". ").append(inputs.get(i)).append("\n");
         }
-        encapsulateSection(message.toString());
+        return message.toString();
     }
 
-    public void add(String[] userInput) {
+    public String add(String[] userInput) {
         String message = String.join(" ", userInput);
         inputs.add(message);
 
         message = "Added: " + message;
-        encapsulateSection(message);
+        return message;
     }
 }
