@@ -5,12 +5,12 @@ public class Bob {
 
     private Boolean isActive;
     private final Scanner sc;
-    private ArrayList<String> inputs;
+    private ArrayList<Task> tasks;
 
     public Bob() {
         this.isActive = true;
         this.sc = new Scanner(System.in);
-        this.inputs = new ArrayList<>();
+        this.tasks = new ArrayList<>();
     }
 
     public static void main(String[] args) {
@@ -41,6 +41,10 @@ public class Bob {
             message = exit();
         } else if (command.equals("list") && userInput.length == 1) {
             message = list();
+        } else if (command.equals("mark") && userInput.length == 2) {
+            message = mark(userInput);
+        } else if (command.equals("unmark") && userInput.length == 2) {
+            message = unmark(userInput);
         } else {
             message = add(userInput);
         }
@@ -85,17 +89,39 @@ public class Bob {
 
     public String list() {
         StringBuilder message = new StringBuilder("Here are the items in your list:\n");
-        for (int i = 0; i < inputs.size(); ++i) {
-            message.append((i + 1)).append(". ").append(inputs.get(i)).append("\n");
+        for (int i = 0; i < tasks.size(); ++i) {
+            message.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
         }
         return message.toString();
     }
 
     public String add(String[] userInput) {
         String message = String.join(" ", userInput);
-        inputs.add(message);
 
-        message = "Added: " + message;
+        Task newTask = new Task(message);
+        tasks.add(newTask);
+
+        message = "Added: \n" + newTask.toString();
+        return message;
+    }
+
+    public String mark(String[] userInput) {
+        String message = "";
+        int idx = Integer.parseInt(userInput[1]) - 1;
+
+        tasks.get(idx).markAsDone();
+        message = "Nice! I've marked this task as done:\n" + tasks.get(idx);
+
+        return message;
+    }
+
+    public String unmark(String[] userInput) {
+        String message = "";
+        int idx = Integer.parseInt(userInput[1]) - 1;
+
+        tasks.get(idx).markAsUndone();
+        message = "I have marked this task as not done, get on it!\n" + tasks.get(idx);
+
         return message;
     }
 }
