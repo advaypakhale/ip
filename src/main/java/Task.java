@@ -44,7 +44,7 @@ class Deadline extends Task {
     }
 
     public String toString() {
-        return "[D]" + super.toString() + " (Deadline: " + due + " )";
+        return "[D]" + super.toString() + " (Deadline: " + due + ")";
     }
 }
 
