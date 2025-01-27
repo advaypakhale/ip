@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 public class Bob {
 
     private Boolean isActive;
+    private final Scanner sc;
 
     public Bob() {
         this.isActive = true;
+        this.sc = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
@@ -13,7 +17,27 @@ public class Bob {
 
     public void run() {
         greet();
-        exit();
+
+        while (isActive) {
+            String[] userInput = getUserInput();
+            processUserInput(userInput);
+        }
+    }
+
+    public String[] getUserInput() {
+        System.out.print(">>> ");
+        return sc.nextLine().split(" ");
+    }
+
+    public void processUserInput(String[] userInput) {
+
+        String command = userInput[0];
+
+        if (command.equals("bye")) {
+            exit();
+        } else {
+            echo(userInput);
+        }
     }
 
     public void encapsulateSection(String message) {
@@ -42,6 +66,12 @@ public class Bob {
 
     public void exit() {
         String message = "Goodbye! Have a great day!";
+        isActive = false;
+        encapsulateSection(message);
+    }
+
+    public void echo(String[] userInput) {
+        String message = String.join(" ", userInput);
         encapsulateSection(message);
     }
 }
