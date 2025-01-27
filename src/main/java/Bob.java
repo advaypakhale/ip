@@ -45,8 +45,14 @@ public class Bob {
             message = mark(userInput);
         } else if (command.equals("unmark") && userInput.length == 2) {
             message = unmark(userInput);
+        } else if (command.equals("todo")) {
+            message = addTodo(userInput);
+        } else if (command.equals("deadline")) {
+            message = addDeadline(userInput);
+        } else if (command.equals("event")) {
+            message = addEvent(userInput);
         } else {
-            message = add(userInput);
+            message = echo(userInput);
         }
 
         encapsulateSection(message);
@@ -95,13 +101,93 @@ public class Bob {
         return message.toString();
     }
 
-    public String add(String[] userInput) {
-        String message = String.join(" ", userInput);
+    public String addTodo(String[] userInput) {
+        String message = "";
 
-        Task newTask = new Task(message);
+        String description = "";
+
+        for (int i = 0; i < userInput.length; i++) {
+            if (i == 0) {
+                continue;
+            } else {
+                description += userInput[i] + " ";
+            }
+        }
+
+        description = description.trim();
+
+        Task newTask = new Todo(description);
         tasks.add(newTask);
 
-        message = "Added: \n" + newTask.toString();
+        message = "I've added a to-do item: \n" + newTask.toString();
+        return message;
+    }
+
+    public String addDeadline(String[] userInput) {
+
+        String message = "";
+        String description = "";
+        String due = "";
+
+        Boolean isDescription = true;
+
+        for (int i = 0; i < userInput.length; i++) {
+            if (i == 0) {
+                continue;
+            } else if (isDescription && !userInput[i].equals("/by")) {
+                description += userInput[i] + " ";
+            } else if (userInput[i].equals("/by")) {
+                isDescription = false;
+            } else {
+                due += userInput[i] + " ";
+            }
+        }
+
+        description = description.trim();
+        due = due.trim();
+
+        Deadline newDeadline = new Deadline(description, due);
+        tasks.add(newDeadline);
+
+        message = "I have added a new deadline to your calendar: \n" + newDeadline.toString();
+        return message;
+    }
+
+    public String addEvent(String[] userInput) {
+
+        String message = "";
+        String description = "";
+        String start = "";
+        String end = "";
+
+        Boolean isDescription = true;
+        Boolean isStart = false;
+
+        for (int i = 0; i < userInput.length; i++) {
+            if (i == 0) {
+                continue;
+            } else if (isDescription && !userInput[i].equals("/from")) {
+                description += userInput[i] + " ";
+            } else if (userInput[i].equals("/from")) {
+                isDescription = false;
+                isStart = true;
+            } else if (isStart && !userInput[i].equals("/to")) {
+                start += userInput[i] + " ";
+            } else if (userInput[i].equals("/to")) {
+                isStart = false;
+            } else {
+                end += userInput[i] + " ";
+            }
+        }
+
+        description = description.trim();
+        start = start.trim();
+        end = end.trim();
+
+        Event newEvent = new Event(description, start, end);
+        tasks.add(newEvent);
+
+        message = "I have added a new event to your calendar: \n" + newEvent.toString();
         return message;
     }
 
