@@ -16,12 +16,22 @@ public class Task {
         return "[" + getStatusIcon() + "] " + description;
     }
 
-    public void markAsDone() {
-        this.isComplete = true;
+    public boolean markAsDone() {
+        if (this.isComplete) {
+            return false;
+        } else {
+            this.isComplete = true;
+            return true;
+        }
     }
 
-    public void markAsUndone() {
-        this.isComplete = false;
+    public boolean markAsUndone() {
+        if (!this.isComplete) {
+            return false;
+        } else {
+            this.isComplete = false;
+            return true;
+        }
     }
 }
 
