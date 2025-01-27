@@ -1,6 +1,6 @@
 public class Bob {
 
-    private Boolean isActive = false;
+    private Boolean isActive;
 
     public Bob() {
         this.isActive = true;
