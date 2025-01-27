@@ -54,7 +54,7 @@ public class Bob {
         System.out.println("-----------------------------");
     }
 
-    public String greet() {
+    public void greet() {
         String message = "";
 
         String logo = """
@@ -69,7 +69,7 @@ public class Bob {
         message += "Hello! I'm Bob, but you can call me Bob.\n";
         message += "What can I do for you on this fine day?";
 
-        return message;
+        encapsulateSection(message);
     }
 
     public String exit() {
