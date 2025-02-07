@@ -1,6 +1,10 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public abstract class Task {
     protected String description;
     protected boolean isComplete;
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy");
 
     public Task(String description) {
         this.description = description;
@@ -34,6 +38,10 @@ public abstract class Task {
         }
     }
 
+    protected String formatDate(LocalDate date) {
+        return date.format(DATE_FORMATTER);
+    }
+
     public abstract String toFileString();
 }
 
@@ -42,6 +50,7 @@ class Todo extends Task {
         super(description);
     }
 
+    @Override
     public String toString() {
         return "[T]" + super.toString();
     }
@@ -53,39 +62,43 @@ class Todo extends Task {
 }
 
 class Deadline extends Task {
-    private String due;
+    private LocalDate due;
 
-    public Deadline(String description, String due) {
+    public Deadline(String description, LocalDate due) {
         super(description);
         this.due = due;
     }
 
+    @Override
     public String toString() {
-        return "[D]" + super.toString() + " (Deadline: " + due + ")";
+        return "[D]" + super.toString() + " (Deadline: " + formatDate(due) + ")";
     }
 
     @Override
     public String toFileString() {
-        return "D | " + (isComplete ? "Y" : "N") + " | " + description + " | " + due;
+        return "D | " + (isComplete ? "Y" : "N") + " | " + description + " | " + due.toString(); // Store in ISO format
     }
 }
 
 class Event extends Task {
-    private String begin;
-    private String end;
+    private LocalDate begin;
+    private LocalDate end;
 
-    public Event(String description, String begin, String end) {
+    public Event(String description, LocalDate begin, LocalDate end) {
         super(description);
         this.begin = begin;
         this.end = end;
     }
 
+    @Override
     public String toString() {
-        return "[E]" + super.toString() + " (Event start: " + begin + " | Event end: " + end + ")";
+        return "[E]" + super.toString() + " (Event start: " + formatDate(begin) + " | Event end: " + formatDate(end)
+                + ")";
     }
 
     @Override
     public String toFileString() {
-        return "E | " + (isComplete ? "Y" : "N") + " | " + description + " | " + begin + " | " + end;
+        return "E | " + (isComplete ? "Y" : "N") + " | " + description + " | " + begin.toString() + " | "
+                + end.toString(); // Store in ISO format
     }
 }

@@ -1,32 +1,42 @@
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public abstract class Command {
     protected StringBuilder message;
     protected String[] userInput;
+
     public Command(String[] userInput) {
         this.message = new StringBuilder();
         this.userInput = userInput;
     }
+
     public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException;
 }
+
 class ExitCommand extends Command {
     public ExitCommand(String[] userInput) {
         super(userInput);
     }
+
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
         if (userInput.length != 1) {
-            throw new IllegalCommandException("I'm sorry, the command 'bye' does not take any arguments. Please try again!");
+            throw new IllegalCommandException(
+                    "I'm sorry, the command 'bye' does not take any arguments. Please try again!");
         }
         message.append("Goodbye! Have a great day!");
         storage.save();
         ui.wrapText(message);
     }
 }
+
 class EchoCommand extends Command {
     public EchoCommand(String[] userInput) {
         super(userInput);
     }
+
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IllegalCommandException {
         ui.wrapText(String.join(" ", userInput));
@@ -41,11 +51,13 @@ class ListCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IllegalCommandException {
         if (userInput.length != 1) {
-            throw new IllegalCommandException("I'm sorry, the command 'list' does not take any arguments. Please try again!");
+            throw new IllegalCommandException(
+                    "I'm sorry, the command 'list' does not take any arguments. Please try again!");
         }
 
         if (tasks.size() == 0) {
-            message.append("You have no tasks in your list! Use the 'todo', 'deadline', or 'event' commands to add a task.");
+            message.append(
+                    "You have no tasks in your list! Use the 'todo', 'deadline', or 'event' commands to add a task.");
         } else {
             message.append("Here are the items in your list:\n");
             for (int i = 0; i < tasks.size(); ++i) {
@@ -187,9 +199,17 @@ class CreateDeadlineCommand extends Command {
         }
 
         String description = splitArguments[0].trim();
-        String due = splitArguments[1].trim();
+        String dateStr = splitArguments[1].trim();
 
-        Task newTask = new Deadline(description, due);
+        LocalDate dueDate;
+        try {
+            dueDate = LocalDate.parse(dateStr, DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (DateTimeParseException e) {
+            throw new IllegalCommandException(
+                    "I'm sorry, the date must be in YYYY-MM-DD format. For example: 2025-12-31. Please try again!");
+        }
+
+        Task newTask = new Deadline(description, dueDate);
         tasks.addTask(newTask);
 
         message.append("I have added a new deadline to your calendar: \n").append(newTask.toString());
@@ -224,10 +244,32 @@ class CreateEventCommand extends Command {
                     "I'm sorry, the proper usage of the event command is 'event <description> /from <start> /to <end>'. Please try again!");
         }
 
-        String start = startEnd[0].trim();
-        String end = startEnd[1].trim();
+        String startDateStr = startEnd[0].trim();
+        String endDateStr = startEnd[1].trim();
 
-        Task newTask = new Event(description, start, end);
+        LocalDate startDate;
+        LocalDate endDate;
+
+        try {
+            startDate = LocalDate.parse(startDateStr, DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (DateTimeParseException e) {
+            throw new IllegalCommandException(
+                    "I'm sorry, the start date must be in YYYY-MM-DD format. For example: 2025-12-31. Please try again!");
+        }
+
+        try {
+            endDate = LocalDate.parse(endDateStr, DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (DateTimeParseException e) {
+            throw new IllegalCommandException(
+                    "I'm sorry, the end date must be in YYYY-MM-DD format. For example: 2025-12-31. Please try again!");
+        }
+
+        if (endDate.isBefore(startDate)) {
+            throw new IllegalCommandException(
+                    "I'm sorry, the end date cannot be before the start date. Please try again!");
+        }
+
+        Task newTask = new Event(description, startDate, endDate);
         tasks.addTask(newTask);
 
         message.append("I have added a new event to your calendar: \n").append(newTask.toString());
@@ -284,7 +326,3 @@ class EmptyInputCommand extends Command {
         ui.wrapText("Please enter a command. I'm happy to help!");
     }
 }
-
-
-
-                    
