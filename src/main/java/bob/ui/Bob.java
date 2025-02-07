@@ -1,3 +1,11 @@
+package bob.ui;
+
+import bob.command.Command;
+import bob.command.ExitCommand;
+import bob.parser.Parser;
+import bob.storage.Storage;
+import bob.task.TaskList;
+
 public class Bob {
     private Boolean isActive;
     private static final String FILE_PATH = "./data/tasks.txt";

@@ -4,7 +4,7 @@
   / __  / __ \/ __ \
  / /_/ / /_/ / /_/ /
 /_____/\____/_.___/ 
-Hello! I'm Bob, but you can call me Bob.
+Hello! I'm bob.ui.Bob, but you can call me bob.ui.Bob.
 What can I do for you on this fine day?
 -----------------------------
 >>> -----------------------------
@@ -17,38 +17,38 @@ I've added a to-do item:
 -----------------------------
 >>> -----------------------------
 I have added a new deadline to your calendar: 
-[D][ ] ten (Deadline: friday)
+[D][ ] ten (bob.task.Deadline: friday)
 -----------------------------
 >>> -----------------------------
 I have added a new event to your calendar: 
-[E][ ] party (Event start: morning | Event end: evening)
+[E][ ] party (bob.task.Event start: morning | bob.task.Event end: evening)
 -----------------------------
 >>> -----------------------------
-Nice! I've marked this task as done:
-[D][X] ten (Deadline: friday)
+Nice! I've marked this bob.task as done:
+[D][X] ten (bob.task.Deadline: friday)
 -----------------------------
 >>> -----------------------------
 Here are the items in your list:
 1. [T][ ] a
 2. [T][ ] b
-3. [D][X] ten (Deadline: friday)
-4. [E][ ] party (Event start: morning | Event end: evening)
+3. [D][X] ten (bob.task.Deadline: friday)
+4. [E][ ] party (bob.task.Event start: morning | bob.task.Event end: evening)
 
 -----------------------------
 >>> -----------------------------
-Nice! I've marked this task as done:
+Nice! I've marked this bob.task as done:
 [T][X] b
 -----------------------------
 >>> -----------------------------
-I have marked this task as not done, get on it!
-[D][ ] ten (Deadline: friday)
+I have marked this bob.task as not done, get on it!
+[D][ ] ten (bob.task.Deadline: friday)
 -----------------------------
 >>> -----------------------------
 Here are the items in your list:
 1. [T][ ] a
 2. [T][X] b
-3. [D][ ] ten (Deadline: friday)
-4. [E][ ] party (Event start: morning | Event end: evening)
+3. [D][ ] ten (bob.task.Deadline: friday)
+4. [E][ ] party (bob.task.Event start: morning | bob.task.Event end: evening)
 
 -----------------------------
 >>> -----------------------------
