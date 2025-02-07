@@ -1,4 +1,4 @@
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isComplete;
 
@@ -33,6 +33,8 @@ public class Task {
             return true;
         }
     }
+
+    public abstract String toFileString();
 }
 
 class Todo extends Task {
@@ -42,6 +44,11 @@ class Todo extends Task {
 
     public String toString() {
         return "[T]" + super.toString();
+    }
+
+    @Override
+    public String toFileString() {
+        return "T | " + (isComplete ? "Y" : "N") + " | " + description;
     }
 }
 
@@ -55,6 +62,11 @@ class Deadline extends Task {
 
     public String toString() {
         return "[D]" + super.toString() + " (Deadline: " + due + ")";
+    }
+
+    @Override
+    public String toFileString() {
+        return "D | " + (isComplete ? "Y" : "N") + " | " + description + " | " + due;
     }
 }
 
@@ -70,5 +82,10 @@ class Event extends Task {
 
     public String toString() {
         return "[E]" + super.toString() + " (Event start: " + begin + " | Event end: " + end + ")";
+    }
+
+    @Override
+    public String toFileString() {
+        return "E | " + (isComplete ? "Y" : "N") + " | " + description + " | " + begin + " | " + end;
     }
 }
