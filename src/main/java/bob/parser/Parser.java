@@ -1,3 +1,8 @@
+package bob.parser;
+
+import bob.command.*;
+import bob.exceptions.IllegalCommandException;
+
 public class Parser {
     public Command parseUserInput(String[] userInput) throws IllegalCommandException {
         if (userInput.length == 0) {
@@ -15,7 +20,7 @@ public class Parser {
             case "deadline" -> new CreateDeadlineCommand(userInput);
             case "event" -> new CreateEventCommand(userInput);
             case "delete" -> new DeleteCommand(userInput);
-            default -> throw new IllegalCommandException("I'm sorry, I don't understand that command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
+            default -> throw new IllegalCommandException("I'm sorry, I don't understand that bob.command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
         };
     }
 }

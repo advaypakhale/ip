@@ -1,3 +1,5 @@
+package bob.ui;
+
 import java.util.Scanner;
 
 
@@ -48,7 +50,7 @@ public class Ui {
                 """;
         message += logo;
 
-        message += "Hello! I'm Bob, but you can call me Bob.\n";
+        message += "Hello! I'm bob.ui.Bob, but you can call me bob.ui.Bob.\n";
         message += "What can I do for you on this fine day?";
 
         wrapText(message);
