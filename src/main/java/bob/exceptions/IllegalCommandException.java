@@ -6,7 +6,7 @@ package bob.exceptions;
  * in the console output.
  */
 public class IllegalCommandException extends Exception {
-    
+
     /**
      * Constructs a new IllegalCommandException with a decorated message.
      * The provided message is wrapped with horizontal lines above and below.

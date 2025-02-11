@@ -2,10 +2,10 @@ package bob.storage;
 
 import bob.task.*;
 
-import java.nio.file.Path;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -22,17 +22,21 @@ import java.util.List;
  * where Y/N indicates completion status (Y=completed, N=incomplete)
  */
 public class Storage {
-    /** The path to the file where tasks are stored */
+    /**
+     * The path to the file where tasks are stored
+     */
     private final String filePath;
 
-    /** The task list containing all tasks to be managed */
+    /**
+     * The task list containing all tasks to be managed
+     */
     private final TaskList tasks;
 
     /**
      * Creates a new Storage instance and immediately loads any existing tasks.
      *
      * @param filePath the path to the file where tasks will be stored
-     * @param tasks the TaskList that will contain the loaded tasks
+     * @param tasks    the TaskList that will contain the loaded tasks
      */
     public Storage(String filePath, TaskList tasks) {
         this.filePath = filePath;

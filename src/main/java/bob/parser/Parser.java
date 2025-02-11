@@ -4,10 +4,10 @@ import bob.command.*;
 import bob.exceptions.IllegalCommandException;
 
 /**
-* Parses user input strings into executable Command objects.
-* Validates and interprets user commands, creating the appropriate command object
-* based on the command type specified in the input.
-*/
+ * Parses user input strings into executable Command objects.
+ * Validates and interprets user commands, creating the appropriate command object
+ * based on the command type specified in the input.
+ */
 public class Parser {
     /**
      * Converts user input into a concrete Command object for execution.

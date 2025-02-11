@@ -12,23 +12,30 @@ import bob.ui.Ui;
  * Coordinates between the UI, storage, parser and task components to provide task management functionality.
  */
 public class Bob {
-    /** Flag indicating if the application is still running */
-    private Boolean isActive;
-
-    /** File path where tasks are persisted */
+    /**
+     * File path where tasks are persisted
+     */
     private static final String FILE_PATH = "./data/tasks.txt";
-
-    /** List containing all tasks */
+    /**
+     * List containing all tasks
+     */
     private final TaskList tasks;
-
-    /** Handles user interface interactions */
+    /**
+     * Handles user interface interactions
+     */
     private final Ui ui;
-
-    /** Parses user input into commands */
+    /**
+     * Parses user input into commands
+     */
     private final Parser parser;
-
-    /** Manages saving and loading of tasks */
+    /**
+     * Manages saving and loading of tasks
+     */
     private final Storage storage;
+    /**
+     * Flag indicating if the application is still running
+     */
+    private Boolean isActive;
 
     /**
      * Creates a new Bob application instance.
@@ -60,7 +67,7 @@ public class Bob {
      * 2. Parses input into a command
      * 3. Executes the command
      * 4. Exits if an ExitCommand is received
-     * 
+     * <p>
      * Any exceptions during execution are caught and their messages displayed to the user.
      */
     public void run() {

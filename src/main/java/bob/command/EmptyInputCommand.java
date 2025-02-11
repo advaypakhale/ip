@@ -22,8 +22,8 @@ public class EmptyInputCommand extends Command {
     /**
      * Executes the empty input command by displaying a message prompting the user to enter a command.
      *
-     * @param tasks The task list containing all tasks
-     * @param ui The user interface used to display messages
+     * @param tasks   The task list containing all tasks
+     * @param ui      The user interface used to display messages
      * @param storage The storage object used to save/load tasks
      */
     @Override

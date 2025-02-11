@@ -7,25 +7,29 @@ import java.time.LocalDate;
  * Extends the base Task class by adding event duration functionality.
  */
 public class Event extends Task {
-    /** The start date of the event */
-    private LocalDate begin;
-    
-    /** The end date of the event */
-    private LocalDate end;
-    
+    /**
+     * The start date of the event
+     */
+    private final LocalDate begin;
+
+    /**
+     * The end date of the event
+     */
+    private final LocalDate end;
+
     /**
      * Creates a new Event task with the specified description and date range.
      *
      * @param description the description of the event
-     * @param begin the start date of the event
-     * @param end the end date of the event
+     * @param begin       the start date of the event
+     * @param end         the end date of the event
      */
     public Event(String description, LocalDate begin, LocalDate end) {
         super(description);
         this.begin = begin;
         this.end = end;
     }
-    
+
     /**
      * Returns a string representation of this Event task.
      * The format is: [E][Status] Description (Event start: formatted_start_date | Event end: formatted_end_date)
@@ -37,7 +41,7 @@ public class Event extends Task {
         return "[E]" + super.toString() + " (Event start: " + formatDate(begin) + " | Event end: " + formatDate(end)
                 + ")";
     }
-    
+
     /**
      * Converts this Event task to a string format suitable for file storage.
      * The format is: E | completion_status | description | ISO_start_date | ISO_end_date

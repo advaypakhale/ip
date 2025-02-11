@@ -28,10 +28,10 @@ public class CreateTodoCommand extends Command {
      * The task description is constructed from the user input, excluding the command word.
      * The new task is then saved to storage and a confirmation message is displayed to the user.
      *
-     * @param tasks The task list to add the new todo task to
-     * @param ui The user interface to display messages
+     * @param tasks   The task list to add the new todo task to
+     * @param ui      The user interface to display messages
      * @param storage The storage system to save the updated task list
-     * @throws IOException If there's an error saving to storage
+     * @throws IOException             If there's an error saving to storage
      * @throws IllegalCommandException If the todo description is empty
      */
     @Override
@@ -50,7 +50,7 @@ public class CreateTodoCommand extends Command {
         Task newTask = new Todo(description);
         tasks.addTask(newTask);
 
-        message.append("I've added a to-do item: \n").append(newTask.toString());
+        message.append("I've added a to-do item: \n").append(newTask);
         storage.save();
         ui.wrapText(message);
     }

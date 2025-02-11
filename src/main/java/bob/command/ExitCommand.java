@@ -25,10 +25,10 @@ public class ExitCommand extends Command {
      * Executes the exit command. Saves all tasks and displays goodbye message.
      * Throws an exception if any arguments are provided with the 'bye' command.
      *
-     * @param tasks The task list containing all tasks
-     * @param ui The user interface for displaying messages
+     * @param tasks   The task list containing all tasks
+     * @param ui      The user interface for displaying messages
      * @param storage The storage object for saving tasks
-     * @throws IOException If there is an error saving the tasks
+     * @throws IOException             If there is an error saving the tasks
      * @throws IllegalCommandException If arguments are provided with the exit command
      */
     @Override
