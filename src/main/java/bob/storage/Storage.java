@@ -2,10 +2,10 @@ package bob.storage;
 
 import bob.task.*;
 
-import java.nio.file.Path;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -25,9 +25,11 @@ public class Storage {
         Path path = Path.of(filePath);
         Files.createDirectories(path.getParent());
         List<String> lines = new ArrayList<>();
+
         for (Task task : tasks) {
             lines.add(task.toFileString());
         }
+
         Files.write(path, lines, StandardOpenOption.CREATE,
                 StandardOpenOption.TRUNCATE_EXISTING);
     }
