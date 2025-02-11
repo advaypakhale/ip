@@ -9,11 +9,31 @@ import bob.ui.Ui;
 
 import java.io.IOException;
 
+/**
+ * Represents a command to create a new Todo task.
+ * This command processes user input to create and add a Todo task to the task list.
+ */
 public class CreateTodoCommand extends Command {
+    /**
+     * Constructs a new CreateTodoCommand with the given user input.
+     *
+     * @param userInput Array of strings containing the command and task description
+     */
     public CreateTodoCommand(String[] userInput) {
         super(userInput);
     }
 
+    /**
+     * Executes the create todo command by creating a new Todo task and adding it to the task list.
+     * The task description is constructed from the user input, excluding the command word.
+     * The new task is then saved to storage and a confirmation message is displayed to the user.
+     *
+     * @param tasks The task list to add the new todo task to
+     * @param ui The user interface to display messages
+     * @param storage The storage system to save the updated task list
+     * @throws IOException If there's an error saving to storage
+     * @throws IllegalCommandException If the todo description is empty
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
         String description = "";
