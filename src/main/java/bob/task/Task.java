@@ -10,19 +10,17 @@ import java.time.format.DateTimeFormatter;
  */
 public abstract class Task {
     /**
+     * Formatter for converting dates to string representation
+     */
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy");
+    /**
      * The description of the task
      */
     protected String description;
-
     /**
      * The completion status of the task
      */
     protected boolean isComplete;
-
-    /**
-     * Formatter for converting dates to string representation
-     */
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd MMM yyyy");
 
     /**
      * Creates a new task with the given description.

@@ -4,7 +4,9 @@ import bob.command.*;
 import bob.exceptions.IllegalCommandException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParserTest {
     private Parser parser;
@@ -18,63 +20,63 @@ public class ParserTest {
     void parseUserInput_emptyInput_returnsEmptyInputCommand() throws IllegalCommandException {
         String[] emptyInput = new String[0];
         Command result = parser.parseUserInput(emptyInput);
-        assertTrue(result instanceof EmptyInputCommand);
+        assertInstanceOf(EmptyInputCommand.class, result);
     }
 
     @Test
     void parseUserInput_exitCommand_returnsExitCommand() throws IllegalCommandException {
         String[] input = {"bye"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof ExitCommand);
+        assertInstanceOf(ExitCommand.class, result);
     }
 
     @Test
     void parseUserInput_listCommand_returnsListCommand() throws IllegalCommandException {
         String[] input = {"list"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof ListCommand);
+        assertInstanceOf(ListCommand.class, result);
     }
 
     @Test
     void parseUserInput_markCommand_returnsMarkCommand() throws IllegalCommandException {
         String[] input = {"mark", "1"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof MarkCommand);
+        assertInstanceOf(MarkCommand.class, result);
     }
 
     @Test
     void parseUserInput_unmarkCommand_returnsUnmarkCommand() throws IllegalCommandException {
         String[] input = {"unmark", "1"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof UnmarkCommand);
+        assertInstanceOf(UnmarkCommand.class, result);
     }
 
     @Test
     void parseUserInput_todoCommand_returnsCreateTodoCommand() throws IllegalCommandException {
         String[] input = {"todo", "Buy groceries"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof CreateTodoCommand);
+        assertInstanceOf(CreateTodoCommand.class, result);
     }
 
     @Test
     void parseUserInput_deadlineCommand_returnsCreateDeadlineCommand() throws IllegalCommandException {
         String[] input = {"deadline", "Submit report", "2025-02-15"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof CreateDeadlineCommand);
+        assertInstanceOf(CreateDeadlineCommand.class, result);
     }
 
     @Test
     void parseUserInput_eventCommand_returnsCreateEventCommand() throws IllegalCommandException {
         String[] input = {"event", "Team meeting", "2025-02-15", "2025-02-16"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof CreateEventCommand);
+        assertInstanceOf(CreateEventCommand.class, result);
     }
 
     @Test
     void parseUserInput_deleteCommand_returnsDeleteCommand() throws IllegalCommandException {
         String[] input = {"delete", "1"};
         Command result = parser.parseUserInput(input);
-        assertTrue(result instanceof DeleteCommand);
+        assertInstanceOf(DeleteCommand.class, result);
     }
 
     @Test

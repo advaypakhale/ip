@@ -1,8 +1,10 @@
 package bob.task;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskTests {
@@ -107,17 +109,6 @@ class TaskTests {
 
     @Nested
     class TaskCommonBehaviorTest {
-        private static class TestTask extends Task {
-            public TestTask(String description) {
-                super(description);
-            }
-
-            @Override
-            public String toFileString() {
-                return null;
-            }
-        }
-
         @Test
         void markAsDone_unmarkedTask_returnsTrue() {
             Task task = new TestTask("Test task");
@@ -150,6 +141,17 @@ class TaskTests {
             assertTrue(task.toString().contains("[ ]"));
             task.markAsDone();
             assertTrue(task.toString().contains("[X]"));
+        }
+
+        private static class TestTask extends Task {
+            public TestTask(String description) {
+                super(description);
+            }
+
+            @Override
+            public String toFileString() {
+                return null;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class UnmarkCommand extends Command {
     /**
      * Constructor for UnmarkCommand to unmark a task as done.
-     * 
+     *
      * @param userInput Array of strings containing the command and its parameters
      */
     public UnmarkCommand(String[] userInput) {
@@ -25,12 +25,12 @@ public class UnmarkCommand extends Command {
      * Executes the unmark command which marks a task as not done.
      * The command format should be 'unmark <index>'.
      *
-     * @param tasks The task list containing all tasks
-     * @param ui The user interface to display messages
+     * @param tasks   The task list containing all tasks
+     * @param ui      The user interface to display messages
      * @param storage The storage to save tasks
-     * @throws IOException If there's an error saving to storage
+     * @throws IOException             If there's an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, if the index is not a number,
-     *         if the task is already undone, if the task list is empty, or if the index is out of bounds
+     *                                 if the task is already undone, if the task list is empty, or if the index is out of bounds
      */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {

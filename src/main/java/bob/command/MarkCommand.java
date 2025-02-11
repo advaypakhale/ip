@@ -15,7 +15,7 @@ public class MarkCommand extends Command {
     /**
      * Creates a new MarkCommand with the specified user input.
      * This command is used to mark tasks as done/completed.
-     * 
+     *
      * @param userInput An array of strings containing the command parameters
      */
     public MarkCommand(String[] userInput) {
@@ -26,12 +26,12 @@ public class MarkCommand extends Command {
      * Executes the mark command to mark a task as done in the task list.
      * The command format should be 'mark <index>'.
      *
-     * @param tasks The task list containing all tasks
-     * @param ui The UI handler for displaying messages
+     * @param tasks   The task list containing all tasks
+     * @param ui      The UI handler for displaying messages
      * @param storage The storage handler for saving tasks
-     * @throws IOException If there is an error saving to storage
+     * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, if the index is not a number,
-     *         if the task is already marked as done, or if the index is out of bounds
+     *                                 if the task is already marked as done, or if the index is out of bounds
      */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {

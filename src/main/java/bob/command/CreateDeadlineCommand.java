@@ -36,8 +36,8 @@ public class CreateDeadlineCommand extends Command {
      * @param tasks   The TaskList object that stores all tasks.
      * @param ui      The Ui object that handles user interaction.
      * @param storage The Storage object that handles saving and loading tasks from the file.
-     * @throws IOException              If there is an error during saving tasks to the file.
-     * @throws IllegalCommandException  If the user input is invalid or the date format is incorrect.
+     * @throws IOException             If there is an error during saving tasks to the file.
+     * @throws IllegalCommandException If the user input is invalid or the date format is incorrect.
      */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
@@ -67,7 +67,7 @@ public class CreateDeadlineCommand extends Command {
         Task newTask = new Deadline(description, dueDate);
         tasks.addTask(newTask);
 
-        message.append("I have added a new deadline to your calendar: \n").append(newTask.toString());
+        message.append("I have added a new deadline to your calendar: \n").append(newTask);
         storage.save();
         ui.wrapText(message);
     }

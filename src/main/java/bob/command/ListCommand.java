@@ -25,8 +25,8 @@ public class ListCommand extends Command {
      * If the list is empty, displays a message indicating no tasks.
      * Otherwise, displays a numbered list of all tasks.
      *
-     * @param tasks The TaskList containing all tasks
-     * @param ui The user interface to display messages
+     * @param tasks   The TaskList containing all tasks
+     * @param ui      The user interface to display messages
      * @param storage The storage manager for tasks
      * @throws IllegalCommandException If the command is used with arguments
      */
