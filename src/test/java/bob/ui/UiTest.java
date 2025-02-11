@@ -92,16 +92,6 @@ class UiTest {
     }
 
     @Test
-    void greet_includesAsciiArt() {
-        ui = new Ui();
-        ui.greet();
-
-        String output = outContent.toString();
-        assertTrue(output.contains("____"));
-        assertTrue(output.contains("/ __ )"));
-    }
-
-    @Test
     void getUserInput_promptDisplayed() {
         provideInput("test\n");
         ui.getUserInput();

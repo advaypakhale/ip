@@ -7,11 +7,33 @@ import bob.ui.Ui;
 
 import java.io.IOException;
 
+/**
+ * Represents a command to delete a task from the task list.
+ * The command requires an index parameter to specify which task to delete.
+ */
 public class DeleteCommand extends Command {
+    /**
+     * Constructs a DeleteCommand with the given user input array.
+     * 
+     * @param userInput An array of strings containing the command parameters.
+     *                 The first element is the command name,
+     *                 and subsequent elements are the command arguments.
+     */
     public DeleteCommand(String[] userInput) {
         super(userInput);
     }
 
+    /**
+     * Executes the delete command to remove a task from the task list.
+     * The command format should be "delete <index>" where index is a valid task number.
+     *
+     * @param tasks The TaskList containing all tasks
+     * @param ui The Ui object to handle user interaction
+     * @param storage The Storage object to save changes to file
+     * @throws IOException If there is an error saving to storage
+     * @throws IllegalCommandException If the command format is invalid, index is not a number,
+     *         task list is empty, or index is out of bounds
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
         if (userInput.length != 2) {

@@ -12,11 +12,32 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents a command to create an event task.
+ * This command parses user input to extract the event description, start date, and end date,
+ * and then adds the event to the task list if the input is valid.
+ */
 public class CreateEventCommand extends Command {
+    /**
+     * Creates a new CreateEventCommand instance.
+     * 
+     * @param userInput An array of strings containing the user's input parameters for creating an event
+     */
     public CreateEventCommand(String[] userInput) {
         super(userInput);
     }
 
+    /**
+     * Executes the create event command by parsing the user input and creating a new Event task.
+     * The event requires a description and start/end dates in ISO format (YYYY-MM-DD).
+     *
+     * @param tasks The task list to add the new event to
+     * @param ui The UI handler for displaying messages
+     * @param storage The storage handler for saving tasks
+     * @throws IOException If there is an error saving to storage
+     * @throws IllegalCommandException If the command format is invalid, dates are in wrong format,
+     *         or end date is before start date
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
         String arguments = "";
