@@ -40,6 +40,10 @@ public abstract class Task {
         }
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     protected String formatDate(LocalDate date) {
         return date.format(DATE_FORMATTER);
     }
