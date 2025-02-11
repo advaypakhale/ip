@@ -1,10 +1,11 @@
-package bob.ui;
+package bob;
 
 import bob.command.Command;
 import bob.command.ExitCommand;
 import bob.parser.Parser;
 import bob.storage.Storage;
 import bob.task.TaskList;
+import bob.ui.Ui;
 
 public class Bob {
     private Boolean isActive;

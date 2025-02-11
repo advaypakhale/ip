@@ -12,21 +12,16 @@ public class Ui {
     }
 
     public String[] getUserInput() {
-        System.out.print(">>> ");
-
-        String nextInput = sc.nextLine();
-
         String[] userInput;
-
+        System.out.print(">>> ");
+        String nextInput = sc.nextLine();
         if (nextInput.isEmpty()) {
             userInput = new String[0];
         } else {
             userInput = nextInput.split(" ");
         }
-
         return userInput;
     }
-
     public void wrapText(StringBuilder message) {
         System.out.println("-----------------------------");
         System.out.println(message.toString());
@@ -50,7 +45,7 @@ public class Ui {
                 """;
         message += logo;
 
-        message += "Hello! I'm bob.ui.Bob, but you can call me bob.ui.Bob.\n";
+        message += "Hello! I'm bob.Bob, but you can call me bob.Bob.\n";
         message += "What can I do for you on this fine day?";
 
         wrapText(message);

@@ -4,7 +4,7 @@
   / __  / __ \/ __ \
  / /_/ / /_/ / /_/ /
 /_____/\____/_.___/ 
-Hello! I'm bob.ui.Bob, but you can call me bob.ui.Bob.
+Hello! I'm bob.Bob, but you can call me bob.Bob.
 What can I do for you on this fine day?
 -----------------------------
 >>> -----------------------------
