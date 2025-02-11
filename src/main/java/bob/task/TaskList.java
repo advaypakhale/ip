@@ -38,6 +38,16 @@ public class TaskList implements Iterable<Task> {
         tasks.clear();
     }
 
+    public ArrayList<Task> findTask(String query) {
+        ArrayList<Task> matchingTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getDescription().toLowerCase().contains(query.toLowerCase())) {
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
+    }
+
     @Override
     public Iterator<Task> iterator() {
         return tasks.iterator();

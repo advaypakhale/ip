@@ -20,7 +20,9 @@ public class Parser {
             case "deadline" -> new CreateDeadlineCommand(userInput);
             case "event" -> new CreateEventCommand(userInput);
             case "delete" -> new DeleteCommand(userInput);
-            default -> throw new IllegalCommandException("I'm sorry, I don't understand that bob.command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
+            case "find" -> new FindCommand(userInput);
+            default ->
+                    throw new IllegalCommandException("I'm sorry, I don't understand that bob.command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
         };
     }
 }
