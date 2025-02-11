@@ -27,18 +27,17 @@ public class DeleteCommand extends Command {
                     "I'm sorry, the index of the bob.task to delete must be a number. The proper usage of the delete bob.command is 'delete <index>'. Please try again!");
         }
 
-        try {
-            String removedTask = tasks.deleteTask(idx);
-            message.append("I have removed this bob.task from your list:\n").append(removedTask);
-        } catch (IndexOutOfBoundsException e) {
-            if (tasks.size() == 0) {
-                throw new IllegalCommandException(
-                        "I'm sorry, you have no tasks in your list to delete. Please add some tasks first!");
-            } else {
-                throw new IllegalCommandException("I'm sorry, the number of the bob.task to delete must be within 1 and "
-                        + tasks.size() + ". Please try again!");
-            }
+        if (tasks.size() == 0) {
+            throw new IllegalCommandException(
+                    "I'm sorry, you have no tasks in your list to delete. Please add some tasks first!");
         }
+        if (idx < 0 || idx >= tasks.size()) {
+            throw new IllegalCommandException("I'm sorry, the number of the bob.task to delete must be within 1 and "
+                    + tasks.size() + ". Please try again!");
+        }
+
+        String removedTask = tasks.deleteTask(idx);
+        message.append("I have removed this bob.task from your list:\n").append(removedTask);
 
         storage.save();
         ui.wrapText(message);
