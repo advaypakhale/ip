@@ -57,6 +57,7 @@ public class DeleteCommand extends Command {
         }
 
         String removedTask = tasks.deleteTask(idx);
+        assert removedTask != null : "Task to delete should not be null";
         message.append("I have removed this task from your list:\n").append(removedTask);
 
         storage.save();

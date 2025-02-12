@@ -92,7 +92,9 @@ public class Bob {
             if (cmd instanceof ExitCommand) {
                 isActive = false;
             }
-            return cmd.execute(tasks, storage);
+            String response = cmd.execute(tasks, storage);
+            assert response != null : "All commands should return a response";
+            return response;
         } catch (Exception e) {
             return e.getMessage();
         }
