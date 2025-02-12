@@ -27,6 +27,7 @@ public class EmptyInputCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Storage storage) {
+        assert userInput.length == 0 : "EmptyInputCommand should not have any user input";
         return "Please enter a command. I'm happy to help!";
     }
 }

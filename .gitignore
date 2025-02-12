@@ -18,3 +18,7 @@ text-ui-test/EXPECTED-UNIX.TXT
 
 # Saved program states
 data/
+.classpath
+.project
+.settings/org.eclipse.buildship.core.prefs
+.settings/org.eclipse.jdt.core.prefs
