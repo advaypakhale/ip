@@ -1,4 +1,4 @@
-# bob.Bob User Guide
+# bob.tui.Bob User Guide
 
 // Update the title above to match the actual product name
 

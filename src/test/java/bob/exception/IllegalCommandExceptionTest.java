@@ -1,4 +1,4 @@
-package bob.exceptions;
+package bob.exception;
 
 import org.junit.jupiter.api.Test;
 

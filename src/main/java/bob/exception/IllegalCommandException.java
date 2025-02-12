@@ -1,4 +1,4 @@
-package bob.exceptions;
+package bob.exception;
 
 /**
  * Exception thrown when an illegal or unrecognized command is encountered.
@@ -14,6 +14,6 @@ public class IllegalCommandException extends Exception {
      * @param message the error message describing the illegal command
      */
     public IllegalCommandException(String message) {
-        super("-----------------------------\n" + message + "\n-----------------------------");
+        super(message);
     }
 }

@@ -1,7 +1,7 @@
 package bob.parser;
 
 import bob.command.*;
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
