@@ -40,6 +40,7 @@ public class MarkCommand extends Command {
         }
 
         int idx;
+        String taskString;
         try {
             idx = Integer.parseInt(userInput[1]) - 1;
         } catch (NumberFormatException e) {
@@ -48,6 +49,7 @@ public class MarkCommand extends Command {
         }
 
         try {
+            taskString = tasks.getTaskString(idx);
             boolean valid = tasks.markAsDone(idx);
             if (!valid) {
                 throw new IllegalCommandException(
@@ -63,7 +65,7 @@ public class MarkCommand extends Command {
             }
         }
 
-        message.append("Nice! I've marked this task as done:\n").append(tasks.getTaskString(idx));
+        message.append("Nice! I've marked this task as done:\n").append(taskString);
         storage.save();
         return message.toString();
     }

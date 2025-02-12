@@ -1,6 +1,7 @@
 package bob.task;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -28,6 +29,7 @@ public class TaskList implements Iterable<Task> {
      */
     public void addTask(Task task) {
         tasks.add(task);
+        Collections.sort(tasks);
     }
 
     /**
@@ -59,7 +61,9 @@ public class TaskList implements Iterable<Task> {
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsDone(int index) {
-        return tasks.get(index).markAsDone();
+        boolean isSuccess = tasks.get(index).markAsDone();
+        Collections.sort(tasks);
+        return isSuccess;
     }
 
     /**
@@ -71,7 +75,9 @@ public class TaskList implements Iterable<Task> {
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsUndone(int index) {
-        return tasks.get(index).markAsUndone();
+        boolean isSuccess = tasks.get(index).markAsUndone();
+        Collections.sort(tasks);
+        return isSuccess;
     }
 
     /**
@@ -82,7 +88,9 @@ public class TaskList implements Iterable<Task> {
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public String deleteTask(int index) {
-        return tasks.remove(index).toString();
+        String deletedTaskString = tasks.remove(index).toString();
+        Collections.sort(tasks);
+        return deletedTaskString;
     }
 
     /**
