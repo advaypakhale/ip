@@ -1,4 +1,4 @@
-package bob.ui;
+package bob.tui;
 
 import java.util.Scanner;
 
@@ -23,18 +23,11 @@ public class Ui {
      * Reads and processes the next line of user input.
      * Displays a prompt (">>> ") and waits for user input.
      *
-     * @return array of strings split on spaces, or empty array if input is empty
+     * @return String input from stdin
      */
-    public String[] getUserInput() {
-        String[] userInput;
+    public String getUserInput() {
         System.out.print(">>> ");
-        String nextInput = sc.nextLine();
-        if (nextInput.isEmpty()) {
-            userInput = new String[0];
-        } else {
-            userInput = nextInput.split(" ");
-        }
-        return userInput;
+        return sc.nextLine();
     }
 
     /**
@@ -73,7 +66,7 @@ public class Ui {
                 /_____/\\____/_.___/\s
                 """;
         message += logo;
-        message += "Hello! I'm bob.Bob, but you can call me bob.Bob.\n";
+        message += "Hello! I'm Bob, but you can call me Bob.\n";
         message += "What can I do for you on this fine day?";
         wrapText(message);
     }

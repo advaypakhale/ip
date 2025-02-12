@@ -1,0 +1,33 @@
+.label {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #2c3e50 !important; /* Force text color */
+    -fx-border-color: transparent;
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+    -fx-padding: 12px 16px;
+    -fx-border-insets: 4px;
+    -fx-background-insets: 4px;
+    -fx-font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    -fx-font-size: 14px;
+    -fx-opacity: 1 !important; /* Force opacity */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 2);
+}
+
+.reply-label {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white !important; /* Force text color for replies */
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+}
+
+#displayPicture {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 0, 3);
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-rotate: 0;
+}
+
+.dialog-container {
+    -fx-spacing: 8;
+    -fx-padding: 16;
+}

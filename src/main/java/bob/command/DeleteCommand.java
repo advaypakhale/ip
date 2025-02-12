@@ -1,9 +1,8 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 import java.io.IOException;
 
@@ -28,14 +27,14 @@ public class DeleteCommand extends Command {
      * The command format should be "delete <index>" where index is a valid task number.
      *
      * @param tasks   The TaskList containing all tasks
-     * @param ui      The Ui object to handle user interaction
      * @param storage The Storage object to save changes to file
+     * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, index is not a number,
      *                                 task list is empty, or index is out of bounds
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
+    public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         if (userInput.length != 2) {
             throw new IllegalCommandException(
                     "I'm sorry, the proper usage of the delete bob.command is 'delete <index>'. Please try again!");
@@ -45,7 +44,7 @@ public class DeleteCommand extends Command {
         try {
             idx = Integer.parseInt(userInput[1]) - 1;
         } catch (NumberFormatException e) {
-            throw new IllegalCommandException("I'm sorry, the index of the bob.task to delete must be a number. The proper usage of the delete bob.command is 'delete <index>'. Please try again!");
+            throw new IllegalCommandException("I'm sorry, the index of the task to delete must be a number. The proper usage of the delete command is 'delete <index>'. Please try again!");
         }
 
         if (tasks.size() == 0) {
@@ -53,14 +52,14 @@ public class DeleteCommand extends Command {
                     "I'm sorry, you have no tasks in your list to delete. Please add some tasks first!");
         }
         if (idx < 0 || idx >= tasks.size()) {
-            throw new IllegalCommandException("I'm sorry, the number of the bob.task to delete must be within 1 and "
+            throw new IllegalCommandException("I'm sorry, the number of the task to delete must be within 1 and "
                     + tasks.size() + ". Please try again!");
         }
 
         String removedTask = tasks.deleteTask(idx);
-        message.append("I have removed this bob.task from your list:\n").append(removedTask);
+        message.append("I have removed this task from your list:\n").append(removedTask);
 
         storage.save();
-        ui.wrapText(message);
+        return message.toString();
     }
 }

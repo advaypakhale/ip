@@ -1,11 +1,10 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Task;
 import bob.task.TaskList;
 import bob.task.Todo;
-import bob.ui.Ui;
 
 import java.io.IOException;
 
@@ -29,13 +28,13 @@ public class CreateTodoCommand extends Command {
      * The new task is then saved to storage and a confirmation message is displayed to the user.
      *
      * @param tasks   The task list to add the new todo task to
-     * @param ui      The user interface to display messages
      * @param storage The storage system to save the updated task list
+     * @return A string containing the success message or an error message
      * @throws IOException             If there's an error saving to storage
      * @throws IllegalCommandException If the todo description is empty
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
+    public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         String description = "";
         for (int i = 1; i < userInput.length; i++) {
             description += userInput[i] + " ";
@@ -44,7 +43,7 @@ public class CreateTodoCommand extends Command {
 
         if (description.isEmpty()) {
             throw new IllegalCommandException(
-                    "I'm sorry, the description of a to-do item cannot be empty. The proper usage of the todo bob.command is 'todo <description>'. Please try again!");
+                    "I'm sorry, the description of a to-do item cannot be empty. The proper usage of the todo command is 'todo <description>'. Please try again!");
         }
 
         Task newTask = new Todo(description);
@@ -52,6 +51,6 @@ public class CreateTodoCommand extends Command {
 
         message.append("I've added a to-do item: \n").append(newTask);
         storage.save();
-        ui.wrapText(message);
+        return message.toString();
     }
 }

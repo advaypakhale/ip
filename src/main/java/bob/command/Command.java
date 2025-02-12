@@ -1,9 +1,8 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 import java.io.IOException;
 
@@ -29,11 +28,10 @@ public abstract class Command {
      * Executes the command with the given task list, UI, and storage.
      *
      * @param tasks   The task list to be manipulated by the command.
-     * @param ui      The UI to interact with the user.
      * @param storage The storage to save or load data.
      * @throws IOException             If an input or output error occurs.
      * @throws IllegalCommandException If the command is illegal or cannot be executed.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException;
+    public abstract String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException;
 }
 

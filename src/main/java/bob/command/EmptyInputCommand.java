@@ -2,7 +2,6 @@ package bob.command;
 
 import bob.storage.Storage;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 /**
  * A command class that handles empty user input.
@@ -23,11 +22,11 @@ public class EmptyInputCommand extends Command {
      * Executes the empty input command by displaying a message prompting the user to enter a command.
      *
      * @param tasks   The task list containing all tasks
-     * @param ui      The user interface used to display messages
      * @param storage The storage object used to save/load tasks
+     * @return A string containing the success message or an error message
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.wrapText("Please enter a bob.command. I'm happy to help!");
+    public String execute(TaskList tasks, Storage storage) {
+        return "Please enter a command. I'm happy to help!";
     }
 }

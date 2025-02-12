@@ -1,9 +1,8 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 import java.io.IOException;
 
@@ -26,19 +25,19 @@ public class ExitCommand extends Command {
      * Throws an exception if any arguments are provided with the 'bye' command.
      *
      * @param tasks   The task list containing all tasks
-     * @param ui      The user interface for displaying messages
      * @param storage The storage object for saving tasks
+     * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving the tasks
      * @throws IllegalCommandException If arguments are provided with the exit command
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
+    public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         if (userInput.length != 1) {
             throw new IllegalCommandException(
-                    "I'm sorry, the bob.command 'bye' does not take any arguments. Please try again!");
+                    "I'm sorry, the command 'bye' does not take any arguments. Please try again!");
         }
         message.append("Goodbye! Have a great day!");
         storage.save();
-        ui.wrapText(message);
+        return message.toString();
     }
 }

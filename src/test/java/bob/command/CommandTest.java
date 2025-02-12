@@ -1,12 +1,12 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Deadline;
 import bob.task.Event;
 import bob.task.TaskList;
 import bob.task.Todo;
-import bob.ui.Ui;
+import bob.tui.Ui;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

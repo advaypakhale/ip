@@ -1,11 +1,10 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Event;
 import bob.task.Task;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -32,14 +31,14 @@ public class CreateEventCommand extends Command {
      * The event requires a description and start/end dates in ISO format (YYYY-MM-DD).
      *
      * @param tasks   The task list to add the new event to
-     * @param ui      The UI handler for displaying messages
      * @param storage The storage handler for saving tasks
+     * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, dates are in wrong format,
      *                                 or end date is before start date
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
+    public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         String arguments = "";
         for (int i = 1; i < userInput.length; i++) {
             arguments += userInput[i] + " ";
@@ -49,14 +48,14 @@ public class CreateEventCommand extends Command {
         String[] splitArguments = arguments.split("/from");
         if (splitArguments.length != 2) {
             throw new IllegalCommandException(
-                    "I'm sorry, the proper usage of the event bob.command is 'event <description> /from <start> /to <end>'. Please try again!");
+                    "I'm sorry, the proper usage of the event command is 'event <description> /from <start> /to <end>'. Please try again!");
         }
 
         String description = splitArguments[0].trim();
         String[] startEnd = splitArguments[1].split("/to");
         if (startEnd.length != 2) {
             throw new IllegalCommandException(
-                    "I'm sorry, the proper usage of the event bob.command is 'event <description> /from <start> /to <end>'. Please try again!");
+                    "I'm sorry, the proper usage of the event command is 'event <description> /from <start> /to <end>'. Please try again!");
         }
 
         String startDateStr = startEnd[0].trim();
@@ -89,6 +88,6 @@ public class CreateEventCommand extends Command {
 
         message.append("I have added a new event to your calendar: \n").append(newTask);
         storage.save();
-        ui.wrapText(message);
+        return message.toString();
     }
 }

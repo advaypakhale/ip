@@ -1,7 +1,7 @@
 package bob.parser;
 
 import bob.command.*;
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 
 /**
  * Parses user input strings into executable Command objects.

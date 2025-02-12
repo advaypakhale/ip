@@ -1,11 +1,10 @@
 package bob.command;
 
-import bob.exceptions.IllegalCommandException;
+import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Deadline;
 import bob.task.Task;
 import bob.task.TaskList;
-import bob.ui.Ui;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -34,13 +33,13 @@ public class CreateDeadlineCommand extends Command {
      * The due date must be in the format YYYY-MM-DD.
      *
      * @param tasks   The TaskList object that stores all tasks.
-     * @param ui      The Ui object that handles user interaction.
      * @param storage The Storage object that handles saving and loading tasks from the file.
+     * @return A string containing the success message or an error message
      * @throws IOException             If there is an error during saving tasks to the file.
      * @throws IllegalCommandException If the user input is invalid or the date format is incorrect.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException, IllegalCommandException {
+    public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         String arguments = "";
         for (int i = 1; i < userInput.length; i++) {
             arguments += userInput[i] + " ";
@@ -50,7 +49,7 @@ public class CreateDeadlineCommand extends Command {
         String[] splitArguments = arguments.split("/by");
         if (splitArguments.length != 2) {
             throw new IllegalCommandException(
-                    "I'm sorry, the proper usage of the deadline bob.command is 'deadline <description> /by <due>'. Please try again!");
+                    "I'm sorry, the proper usage of the deadline command is 'deadline <description> /by <due>'. Please try again!");
         }
 
         String description = splitArguments[0].trim();
@@ -69,6 +68,6 @@ public class CreateDeadlineCommand extends Command {
 
         message.append("I have added a new deadline to your calendar: \n").append(newTask);
         storage.save();
-        ui.wrapText(message);
+        return message.toString();
     }
 }
