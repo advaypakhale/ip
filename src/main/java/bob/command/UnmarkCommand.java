@@ -39,6 +39,7 @@ public class UnmarkCommand extends Command {
         }
 
         int idx;
+        String taskString;
         try {
             idx = Integer.parseInt(userInput[1]) - 1;
         } catch (NumberFormatException e) {
@@ -47,6 +48,7 @@ public class UnmarkCommand extends Command {
         }
 
         try {
+            taskString = tasks.getTaskString(idx);
             boolean valid = tasks.markAsUndone(idx);
             if (!valid) {
                 throw new IllegalCommandException(
@@ -62,7 +64,7 @@ public class UnmarkCommand extends Command {
             }
         }
 
-        message.append("I have marked this task as not done, get on it!\n").append(tasks.getTaskString(idx));
+        message.append("I have marked this task as not done, get on it!\n").append(taskString);
         storage.save();
         return message.toString();
     }

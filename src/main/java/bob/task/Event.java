@@ -53,4 +53,45 @@ public class Event extends Task {
         return "E | " + (isComplete ? "Y" : "N") + " | " + description + " | " + begin.toString() + " | "
                 + end.toString();
     }
+
+    /**
+     * Returns the date to use for comparison when sorting tasks.
+     * For Event tasks, this is the start date of the event.
+     * 
+     * @return the date to use for comparison
+     */
+    @Override
+    public LocalDate getComparisonDate() {
+        return begin;
+    }
+
+    /**
+     * Compares this Event task with another task for sorting purposes.
+     *
+     * @param other the task to compare with
+     * @return a negative integer, zero, or a positive integer as this task is less than, equal to, or greater than the other task
+     */
+    @Override
+    public int compareTo(Task other) {
+        if (this.isComplete && !other.isComplete) {
+            return 1;
+        } else if (!this.isComplete && other.isComplete) {
+            return -1;
+        } else {
+            int dateComparison = this.getComparisonDate().compareTo(other.getComparisonDate());
+
+            if (dateComparison != 0) {
+                return dateComparison;
+            }
+
+            if (other instanceof Event) {
+                Event otherEvent = (Event) other;
+                return this.end.compareTo(otherEvent.end) == 0
+                       ? this.description.compareTo(other.description)
+                       : this.end.compareTo(otherEvent.end);
+            } else {
+                return 1; // other must be a Deadline task
+            }
+        }
+    }
 }

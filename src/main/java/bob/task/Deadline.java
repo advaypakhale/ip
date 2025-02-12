@@ -44,4 +44,42 @@ public class Deadline extends Task {
     public String toFileString() {
         return "D | " + (isComplete ? "Y" : "N") + " | " + description + " | " + due.toString();
     }
+
+    /**
+     * Returns the date to use for comparison when sorting tasks.
+     * For Deadline tasks, this is the due date.
+     *
+     * @return the comparison date for sorting
+     */
+    @Override
+    public LocalDate getComparisonDate() {
+        return due;
+    }
+
+    /**
+     * Compares this Deadline task with another task for sorting purposes.
+     *
+     * @param other the task to compare with
+     * @return a negative integer, zero, or a positive integer as this task is less than, equal to, or greater than the other task
+     */
+    @Override
+    public int compareTo(Task other) {
+        if (this.isComplete && !other.isComplete) {
+            return 1;
+        } else if (!this.isComplete && other.isComplete) {
+            return -1;
+        } else {
+            int dateComparison = this.getComparisonDate().compareTo(other.getComparisonDate());
+
+            if (dateComparison != 0) {
+                return dateComparison;
+            }
+
+            if (other instanceof Deadline) {
+                return this.description.compareTo(other.description);
+            } else {
+                return -1; // other must be a Event task
+            }
+        }
+    }
 }

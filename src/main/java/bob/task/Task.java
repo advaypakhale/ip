@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  * Provides common functionality for task management including completion status,
  * description, and date formatting.
  */
-public abstract class Task {
+public abstract class Task implements Comparable<Task> {
     /**
      * Formatter for converting dates to string representation
      */
@@ -110,5 +110,13 @@ public abstract class Task {
     public String getDescription() {
         return description;
     }
+
+    /**
+     * Returns a comparison date for implementing compareTo method.
+     * Implementation varies by task type.
+     * 
+     * @return comparison date for task
+     */
+    abstract public LocalDate getComparisonDate();
 }
 
