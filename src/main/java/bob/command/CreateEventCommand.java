@@ -1,21 +1,20 @@
 package bob.command;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Event;
 import bob.task.Task;
 import bob.task.TaskList;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
 /**
- * Represents a command to create an event task.
- * This command parses user input to extract the event description, start date,
- * and end date,
- * and then adds the event to the task list if the input is valid.
+ * Represents a command to create an event task. This command parses user input
+ * to extract the event description, start date, and end date, and then adds the
+ * event to the task list if the input is valid.
  */
 public class CreateEventCommand extends Command {
     /**
@@ -30,17 +29,16 @@ public class CreateEventCommand extends Command {
 
     /**
      * Executes the create event command by parsing the user input and creating a
-     * new Event task.
-     * The event requires a description and start/end dates in ISO format
-     * (YYYY-MM-DD).
+     * new Event task. The event requires a description and start/end dates in ISO
+     * format (YYYY-MM-DD).
      *
      * @param tasks   The task list to add the new event to
      * @param storage The storage handler for saving tasks
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, dates are
-     *                                 in wrong format,
-     *                                 or end date is before start date
+     *                                 in wrong format, or end date is before start
+     *                                 date
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

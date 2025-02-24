@@ -1,15 +1,14 @@
 package bob.command;
 
+import java.io.IOException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 
-import java.io.IOException;
-
 /**
- * Represents a command to unmark a task as done in the task list.
- * This command takes an index as input and marks the corresponding task as
- * undone.
+ * Represents a command to unmark a task as done in the task list. This command
+ * takes an index as input and marks the corresponding task as undone.
  */
 public class UnmarkCommand extends Command {
     /**
@@ -22,18 +21,17 @@ public class UnmarkCommand extends Command {
     }
 
     /**
-     * Executes the unmark command which marks a task as not done.
-     * The command format should be 'unmark <index>'.
+     * Executes the unmark command which marks a task as not done. The command
+     * format should be 'unmark <index>'.
      *
      * @param tasks   The task list containing all tasks
      * @param storage The storage to save tasks
      * @return A string containing the success message or an error message
      * @throws IOException             If there's an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, if the
-     *                                 index is not a number,
-     *                                 if the task is already undone, if the task
-     *                                 list is empty, or if the index is out of
-     *                                 bounds
+     *                                 index is not a number, if the task is already
+     *                                 undone, if the task list is empty, or if the
+     *                                 index is out of bounds
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

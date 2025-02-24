@@ -4,10 +4,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Abstract base class for all task types in the system.
- * Provides common functionality for task management including completion
- * status,
- * description, and date formatting.
+ * Abstract base class for all task types in the system. Provides common
+ * functionality for task management including completion status, description,
+ * and date formatting.
  */
 public abstract class Task implements Comparable<Task> {
     /**
@@ -24,8 +23,8 @@ public abstract class Task implements Comparable<Task> {
     protected boolean isComplete;
 
     /**
-     * Creates a new task with the given description.
-     * Tasks are initialized as incomplete.
+     * Creates a new task with the given description. Tasks are initialized as
+     * incomplete.
      *
      * @param description the description of the task
      */
@@ -35,8 +34,8 @@ public abstract class Task implements Comparable<Task> {
     }
 
     /**
-     * Returns the status icon for the task's completion state.
-     * "X" for completed tasks, space for incomplete tasks.
+     * Returns the status icon for the task's completion state. "X" for completed
+     * tasks, space for incomplete tasks.
      *
      * @return the status icon string
      */
@@ -45,8 +44,8 @@ public abstract class Task implements Comparable<Task> {
     }
 
     /**
-     * Returns a string representation of the task.
-     * The format is: [Status] Description
+     * Returns a string representation of the task. The format is: [Status]
+     * Description
      *
      * @return formatted string representation of the task
      */
@@ -58,8 +57,8 @@ public abstract class Task implements Comparable<Task> {
     /**
      * Marks the task as complete if it is not already completed.
      *
-     * @return true if the task was successfully marked as complete,
-     *         false if it was already complete
+     * @return true if the task was successfully marked as complete, false if it was
+     *         already complete
      */
     public boolean markAsDone() {
         if (this.isComplete) {
@@ -73,8 +72,8 @@ public abstract class Task implements Comparable<Task> {
     /**
      * Marks the task as incomplete if it is currently completed.
      *
-     * @return true if the task was successfully marked as incomplete,
-     *         false if it was already incomplete
+     * @return true if the task was successfully marked as incomplete, false if it
+     *         was already incomplete
      */
     public boolean markAsUndone() {
         if (!this.isComplete) {
@@ -113,8 +112,8 @@ public abstract class Task implements Comparable<Task> {
     }
 
     /**
-     * Returns a comparison date for implementing compareTo method.
-     * Implementation varies by task type.
+     * Returns a comparison date for implementing compareTo method. Implementation
+     * varies by task type.
      *
      * @return comparison date for task
      */

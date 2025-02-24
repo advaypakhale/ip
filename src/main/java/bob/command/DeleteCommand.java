@@ -1,39 +1,38 @@
 package bob.command;
 
+import java.io.IOException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 
-import java.io.IOException;
-
 /**
- * Represents a command to delete a task from the task list.
- * The command requires an index parameter to specify which task to delete.
+ * Represents a command to delete a task from the task list. The command
+ * requires an index parameter to specify which task to delete.
  */
 public class DeleteCommand extends Command {
     /**
      * Constructs a DeleteCommand with the given user input array.
      *
-     * @param userInput An array of strings containing the command parameters.
-     *                  The first element is the command name,
-     *                  and subsequent elements are the command arguments.
+     * @param userInput An array of strings containing the command parameters. The
+     *                  first element is the command name, and subsequent elements
+     *                  are the command arguments.
      */
     public DeleteCommand(String[] userInput) {
         super(userInput);
     }
 
     /**
-     * Executes the delete command to remove a task from the task list.
-     * The command format should be "delete <index>" where index is a valid task
-     * number.
+     * Executes the delete command to remove a task from the task list. The command
+     * format should be "delete <index>" where index is a valid task number.
      *
      * @param tasks   The TaskList containing all tasks
      * @param storage The Storage object to save changes to file
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, index is
-     *                                 not a number,
-     *                                 task list is empty, or index is out of bounds
+     *                                 not a number, task list is empty, or index is
+     *                                 out of bounds
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

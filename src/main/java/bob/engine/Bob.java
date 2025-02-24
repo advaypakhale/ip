@@ -7,9 +7,9 @@ import bob.storage.Storage;
 import bob.task.TaskList;
 
 /**
- * Class that serves as the core internal engine of the Bob chatbot.
- * Coordinates between the UI, storage, parser and task components to provide
- * task management functionality.
+ * Class that serves as the core internal engine of the Bob chatbot. Coordinates
+ * between the UI, storage, parser and task components to provide task
+ * management functionality.
  */
 public class Bob {
     /**
@@ -19,8 +19,7 @@ public class Bob {
 
     /**
      * Counter based on how many Bob instances are created, in order to save
-     * generated TaskLists.
-     * Used to create unique file paths for each Bob instance.
+     * generated TaskLists. Used to create unique file paths for each Bob instance.
      */
     private static int counter = 0;
 
@@ -46,11 +45,9 @@ public class Bob {
 
     /**
      * Creates a new Bob application instance with an automatically generated file
-     * path.
-     * Initializes all components (UI, storage, parser, task list) and loads any
-     * existing tasks.
-     * The file path is generated using a counter to ensure unique storage locations
-     * for multiple instances.
+     * path. Initializes all components (UI, storage, parser, task list) and loads
+     * any existing tasks. The file path is generated using a counter to ensure
+     * unique storage locations for multiple instances.
      */
     public Bob() {
         this.tasks = new TaskList();
@@ -64,8 +61,7 @@ public class Bob {
     /**
      * Creates a new Bob application instance with a specified file path.
      * Initializes all components (UI, storage, parser, task list) and loads any
-     * existing tasks
-     * from the specified location.
+     * existing tasks from the specified location.
      *
      * @param filePath The specific file path where tasks should be stored and
      *                 loaded from
@@ -77,12 +73,10 @@ public class Bob {
     }
 
     /**
-     * Processes user input and generates an appropriate response.
-     * This method handles the core logic of:
-     * 1. Splitting the input into tokens
-     * 2. Parsing the tokens into a command
-     * 3. Executing the command
-     * 4. Handling any errors that occur during processing
+     * Processes user input and generates an appropriate response. This method
+     * handles the core logic of: 1. Splitting the input into tokens 2. Parsing the
+     * tokens into a command 3. Executing the command 4. Handling any errors that
+     * occur during processing
      *
      * @param userInput The raw input string from the user
      * @return A response string that contains either the command execution result
@@ -109,8 +103,8 @@ public class Bob {
     }
 
     /**
-     * Checks if the Bob application is still running.
-     * This status changes to false when an ExitCommand is processed.
+     * Checks if the Bob application is still running. This status changes to false
+     * when an ExitCommand is processed.
      *
      * @return true if the application is still running, false if it should
      *         terminate

@@ -1,12 +1,22 @@
 package bob.parser;
 
-import bob.command.*;
-import bob.exception.IllegalCommandException;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import bob.command.Command;
+import bob.command.CreateDeadlineCommand;
+import bob.command.CreateEventCommand;
+import bob.command.CreateTodoCommand;
+import bob.command.DeleteCommand;
+import bob.command.EmptyInputCommand;
+import bob.command.ExitCommand;
+import bob.command.ListCommand;
+import bob.command.MarkCommand;
+import bob.command.UnmarkCommand;
+import bob.exception.IllegalCommandException;
 
 public class ParserTest {
     private Parser parser;

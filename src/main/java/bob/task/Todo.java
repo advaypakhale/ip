@@ -3,8 +3,8 @@ package bob.task;
 import java.time.LocalDate;
 
 /**
- * Represents a basic todo task without any date constraints.
- * Extends the base Task class with simple todo-specific formatting.
+ * Represents a basic todo task without any date constraints. Extends the base
+ * Task class with simple todo-specific formatting.
  */
 public class Todo extends Task {
 
@@ -20,8 +20,8 @@ public class Todo extends Task {
     }
 
     /**
-     * Returns a string representation of this Todo task.
-     * The format is: [T][Status] Description
+     * Returns a string representation of this Todo task. The format is: [T][Status]
+     * Description
      *
      * @return formatted string representation of the todo task
      */
@@ -31,8 +31,8 @@ public class Todo extends Task {
     }
 
     /**
-     * Converts this Todo task to a string format suitable for file storage.
-     * The format is: T | completion_status | description
+     * Converts this Todo task to a string format suitable for file storage. The
+     * format is: T | completion_status | description
      *
      * @return string representation for file storage
      */
@@ -42,8 +42,8 @@ public class Todo extends Task {
     }
 
     /**
-     * Returns the date to use for comparison when sorting tasks.
-     * For Todo tasks, this is the maximum possible date.
+     * Returns the date to use for comparison when sorting tasks. For Todo tasks,
+     * this is the maximum possible date.
      *
      * @return the comparison date for sorting
      */

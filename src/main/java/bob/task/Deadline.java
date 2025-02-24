@@ -3,8 +3,8 @@ package bob.task;
 import java.time.LocalDate;
 
 /**
- * Represents a task with a specific deadline date.
- * Extends the base Task class by adding due date functionality.
+ * Represents a task with a specific deadline date. Extends the base Task class
+ * by adding due date functionality.
  */
 public class Deadline extends Task {
     /**
@@ -24,8 +24,8 @@ public class Deadline extends Task {
     }
 
     /**
-     * Returns a string representation of this Deadline task.
-     * The format is: [D][Status] Description (Deadline: formatted_date)
+     * Returns a string representation of this Deadline task. The format is:
+     * [D][Status] Description (Deadline: formatted_date)
      *
      * @return formatted string representation of the deadline task
      */
@@ -35,8 +35,8 @@ public class Deadline extends Task {
     }
 
     /**
-     * Converts this Deadline task to a string format suitable for file storage.
-     * The format is: D | completion_status | description | ISO_date
+     * Converts this Deadline task to a string format suitable for file storage. The
+     * format is: D | completion_status | description | ISO_date
      *
      * @return string representation for file storage
      */
@@ -46,8 +46,8 @@ public class Deadline extends Task {
     }
 
     /**
-     * Returns the date to use for comparison when sorting tasks.
-     * For Deadline tasks, this is the due date.
+     * Returns the date to use for comparison when sorting tasks. For Deadline
+     * tasks, this is the due date.
      *
      * @return the comparison date for sorting
      */

@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.Iterator;
 
 /**
- * A container class that manages a collection of tasks.
- * Provides methods for adding, removing, and manipulating tasks.
- * Implements Iterable to allow iteration over the contained tasks.
+ * A container class that manages a collection of tasks. Provides methods for
+ * adding, removing, and manipulating tasks. Implements Iterable to allow
+ * iteration over the contained tasks.
  */
 public class TaskList implements Iterable<Task> {
     /**
@@ -19,7 +19,7 @@ public class TaskList implements Iterable<Task> {
      * Creates a new empty task list.
      */
     public TaskList() {
-        this.tasks = new ArrayList<Task>();
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -56,8 +56,8 @@ public class TaskList implements Iterable<Task> {
      * Marks the task at the specified index as complete.
      *
      * @param index the index of the task to mark as complete
-     * @return true if the task was successfully marked as complete,
-     *         false if it was already complete
+     * @return true if the task was successfully marked as complete, false if it was
+     *         already complete
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsDone(int index) {
@@ -70,8 +70,8 @@ public class TaskList implements Iterable<Task> {
      * Marks the task at the specified index as incomplete.
      *
      * @param index the index of the task to mark as incomplete
-     * @return true if the task was successfully marked as incomplete,
-     *         false if it was already incomplete
+     * @return true if the task was successfully marked as incomplete, false if it
+     *         was already incomplete
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsUndone(int index) {
@@ -111,13 +111,13 @@ public class TaskList implements Iterable<Task> {
     }
 
     /**
-     * Searches for tasks whose descriptions contain the specified query string.
-     * The search is case-insensitive.
+     * Searches for tasks whose descriptions contain the specified query string. The
+     * search is case-insensitive.
      *
      * @param query The search string to match against task descriptions
      * @return An ArrayList containing all tasks whose descriptions contain the
-     *         query string
-     *         Returns an empty ArrayList if no matching tasks are found
+     *         query string Returns an empty ArrayList if no matching tasks are
+     *         found
      * @throws NullPointerException if the query parameter is null
      * @see Task
      */

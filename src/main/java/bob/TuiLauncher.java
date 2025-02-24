@@ -5,9 +5,8 @@ import bob.tui.Ui;
 
 /**
  * Main class that serves as the entry point and controller for the Bob task
- * management application.
- * Coordinates between the UI, storage, parser and task components to provide
- * task management functionality.
+ * management application. Coordinates between the UI, storage, parser and task
+ * components to provide task management functionality.
  */
 public class TuiLauncher {
     /**
@@ -18,9 +17,8 @@ public class TuiLauncher {
     private final Bob bob;
 
     /**
-     * Creates a new Bob application instance.
-     * Initializes all components (UI, storage, parser, task list) and loads any
-     * existing tasks.
+     * Creates a new Bob application instance. Initializes all components (UI,
+     * storage, parser, task list) and loads any existing tasks.
      */
     public TuiLauncher() {
         this.ui = new Ui();
@@ -28,8 +26,8 @@ public class TuiLauncher {
     }
 
     /**
-     * Entry point of the application.
-     * Creates a launcher instance and starts the application loop.
+     * Entry point of the application. Creates a launcher instance and starts the
+     * application loop.
      *
      * @param args command line arguments (not used)
      */
@@ -39,12 +37,9 @@ public class TuiLauncher {
     }
 
     /**
-     * Main application loop.
-     * Displays welcome message and repeatedly:
-     * 1. Gets user input
-     * 2. Passes user input to bob engine
-     * 3. Prints retrieved response from Bob
-     * 4. Exits if Bob is no longer active (bye command was used)
+     * Main application loop. Displays welcome message and repeatedly: 1. Gets user
+     * input 2. Passes user input to bob engine 3. Prints retrieved response from
+     * Bob 4. Exits if Bob is no longer active (bye command was used)
      */
     public void run() {
         ui.greet();

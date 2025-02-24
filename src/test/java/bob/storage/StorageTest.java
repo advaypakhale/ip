@@ -1,12 +1,7 @@
 package bob.storage;
 
-import bob.task.Deadline;
-import bob.task.Event;
-import bob.task.TaskList;
-import bob.task.Todo;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,8 +9,14 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+import bob.task.Deadline;
+import bob.task.Event;
+import bob.task.TaskList;
+import bob.task.Todo;
 
 class StorageTest {
     @TempDir
@@ -106,10 +107,7 @@ class StorageTest {
 
     @Test
     void load_withMalformedLine_skipsLine() throws IOException {
-        Files.write(storageFile, List.of(
-                "T | N | Valid todo",
-                "Invalid line",
-                "T | N | Another valid todo"));
+        Files.write(storageFile, List.of("T | N | Valid todo", "Invalid line", "T | N | Another valid todo"));
 
         storage.load();
 
@@ -118,9 +116,7 @@ class StorageTest {
 
     @Test
     void load_withMalformedDate_skipsTask() throws IOException {
-        Files.write(storageFile, List.of(
-                "D | N | Report | invalid-date",
-                "T | N | Valid todo"));
+        Files.write(storageFile, List.of("D | N | Report | invalid-date", "T | N | Valid todo"));
 
         storage.load();
 

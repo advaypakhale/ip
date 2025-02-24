@@ -1,14 +1,14 @@
 package bob.command;
 
+import java.io.IOException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 
-import java.io.IOException;
-
 /**
- * Represents an abstract command that can be executed.
- * Each command has a message output and user input associated with it.
+ * Represents an abstract command that can be executed. Each command has a
+ * message output and user input associated with it.
  */
 public abstract class Command {
     protected StringBuilder message;

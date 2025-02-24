@@ -5,8 +5,8 @@ import bob.storage.Storage;
 import bob.task.TaskList;
 
 /**
- * Represents a command to display all tasks in the task list.
- * This command does not take any additional arguments.
+ * Represents a command to display all tasks in the task list. This command does
+ * not take any additional arguments.
  */
 public class ListCommand extends Command {
     /**
@@ -20,9 +20,9 @@ public class ListCommand extends Command {
     }
 
     /**
-     * Executes the list command to display all tasks in the task list.
-     * If the list is empty, displays a message indicating no tasks.
-     * Otherwise, displays a numbered list of all tasks.
+     * Executes the list command to display all tasks in the task list. If the list
+     * is empty, displays a message indicating no tasks. Otherwise, displays a
+     * numbered list of all tasks.
      *
      * @param tasks   The TaskList containing all tasks
      * @param storage The storage manager for tasks

@@ -3,8 +3,8 @@ package bob.tui;
 import java.util.Scanner;
 
 /**
- * Handles all user interface interactions including input/output formatting
- * and display of the application's ASCII art logo.
+ * Handles all user interface interactions including input/output formatting and
+ * display of the application's ASCII art logo.
  */
 public class Ui {
     /**
@@ -20,8 +20,8 @@ public class Ui {
     }
 
     /**
-     * Reads and processes the next line of user input.
-     * Displays a prompt (">>> ") and waits for user input.
+     * Reads and processes the next line of user input. Displays a prompt (">>> ")
+     * and waits for user input.
      *
      * @return String input from stdin
      */
@@ -53,8 +53,8 @@ public class Ui {
     }
 
     /**
-     * Displays the welcome message with ASCII art logo.
-     * Shows the application's logo and a greeting message to the user.
+     * Displays the welcome message with ASCII art logo. Shows the application's
+     * logo and a greeting message to the user.
      */
     public void greet() {
         String message = "";

@@ -1,20 +1,19 @@
 package bob.command;
 
+import java.io.IOException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 
-import java.io.IOException;
-
 /**
- * Represents a command to mark a task as done in the task list.
- * This command allows users to mark a specific task as completed by providing
- * its index.
+ * Represents a command to mark a task as done in the task list. This command
+ * allows users to mark a specific task as completed by providing its index.
  */
 public class MarkCommand extends Command {
     /**
-     * Creates a new MarkCommand with the specified user input.
-     * This command is used to mark tasks as done/completed.
+     * Creates a new MarkCommand with the specified user input. This command is used
+     * to mark tasks as done/completed.
      *
      * @param userInput An array of strings containing the command parameters
      */
@@ -23,17 +22,17 @@ public class MarkCommand extends Command {
     }
 
     /**
-     * Executes the mark command to mark a task as done in the task list.
-     * The command format should be 'mark <index>'.
+     * Executes the mark command to mark a task as done in the task list. The
+     * command format should be 'mark <index>'.
      *
      * @param tasks   The task list containing all tasks
      * @param storage The storage handler for saving tasks
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
      * @throws IllegalCommandException If the command format is invalid, if the
-     *                                 index is not a number,
-     *                                 if the task is already marked as done, or if
-     *                                 the index is out of bounds
+     *                                 index is not a number, if the task is already
+     *                                 marked as done, or if the index is out of
+     *                                 bounds
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

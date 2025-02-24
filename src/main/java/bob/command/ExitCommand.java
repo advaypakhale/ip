@@ -1,14 +1,14 @@
 package bob.command;
 
+import java.io.IOException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 
-import java.io.IOException;
-
 /**
- * Represents a command to exit the application.
- * This command saves all tasks and terminates the program.
+ * Represents a command to exit the application. This command saves all tasks
+ * and terminates the program.
  */
 public class ExitCommand extends Command {
     /**

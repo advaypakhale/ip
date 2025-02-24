@@ -1,5 +1,6 @@
 package bob.parser;
 
+import bob.command.Command;
 import bob.command.CreateDeadlineCommand;
 import bob.command.CreateEventCommand;
 import bob.command.CreateTodoCommand;
@@ -10,20 +11,17 @@ import bob.command.FindCommand;
 import bob.command.ListCommand;
 import bob.command.MarkCommand;
 import bob.command.UnmarkCommand;
-import bob.command.Command;
-
 import bob.exception.IllegalCommandException;
 
 /**
- * Parses user input strings into executable Command objects.
- * Validates and interprets user commands, creating the appropriate command
- * object
- * based on the command type specified in the input.
+ * Parses user input strings into executable Command objects. Validates and
+ * interprets user commands, creating the appropriate command object based on
+ * the command type specified in the input.
  */
 public class Parser {
     /**
-     * Converts user input into a concrete Command object for execution.
-     * The first word in the input array determines the type of command created:
+     * Converts user input into a concrete Command object for execution. The first
+     * word in the input array determines the type of command created:
      * <ul>
      * <li>bye - Creates ExitCommand to terminate the program</li>
      * <li>list - Creates ListCommand to display all tasks</li>
@@ -49,18 +47,17 @@ public class Parser {
         String commandString = userInput[0];
 
         return switch (commandString) {
-            case "bye" -> new ExitCommand(userInput);
-            case "list" -> new ListCommand(userInput);
-            case "mark" -> new MarkCommand(userInput);
-            case "unmark" -> new UnmarkCommand(userInput);
-            case "todo" -> new CreateTodoCommand(userInput);
-            case "deadline" -> new CreateDeadlineCommand(userInput);
-            case "event" -> new CreateEventCommand(userInput);
-            case "delete" -> new DeleteCommand(userInput);
-            case "find" -> new FindCommand(userInput);
-            default ->
-                throw new IllegalCommandException(
-                        "I'm sorry, I don't understand that bob.command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
+        case "bye" -> new ExitCommand(userInput);
+        case "list" -> new ListCommand(userInput);
+        case "mark" -> new MarkCommand(userInput);
+        case "unmark" -> new UnmarkCommand(userInput);
+        case "todo" -> new CreateTodoCommand(userInput);
+        case "deadline" -> new CreateDeadlineCommand(userInput);
+        case "event" -> new CreateEventCommand(userInput);
+        case "delete" -> new DeleteCommand(userInput);
+        case "find" -> new FindCommand(userInput);
+        default -> throw new IllegalCommandException(
+                "I'm sorry, I don't understand that bob.command. Please try with one of the following commands: bye, list, mark, unmark, todo, deadline, event.");
         };
     }
 }

@@ -4,13 +4,13 @@ import bob.storage.Storage;
 import bob.task.TaskList;
 
 /**
- * A command class that handles empty user input.
- * This command is triggered when the user enters nothing or only whitespace.
+ * A command class that handles empty user input. This command is triggered when
+ * the user enters nothing or only whitespace.
  */
 public class EmptyInputCommand extends Command {
     /**
-     * A command that handles empty input from the user.
-     * Extends the base Command class.
+     * A command that handles empty input from the user. Extends the base Command
+     * class.
      *
      * @param userInput Array of strings containing the user's input tokens
      */

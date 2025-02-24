@@ -1,23 +1,22 @@
 package bob.command;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import bob.exception.IllegalCommandException;
 import bob.storage.Storage;
 import bob.task.Deadline;
 import bob.task.Task;
 import bob.task.TaskList;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
 /**
- * Represents a command to create a new deadline task.
- * This command expects the user input to contain a description and a due date
- * in the format 'YYYY-MM-DD'.
- * The command will parse the user input, create a new Deadline task, add it to
- * the task list, and save the updated task list to storage.
- * If the user input is invalid, an IllegalCommandException will be thrown.
+ * Represents a command to create a new deadline task. This command expects the
+ * user input to contain a description and a due date in the format
+ * 'YYYY-MM-DD'. The command will parse the user input, create a new Deadline
+ * task, add it to the task list, and save the updated task list to storage. If
+ * the user input is invalid, an IllegalCommandException will be thrown.
  */
 public class CreateDeadlineCommand extends Command {
     /**
@@ -31,10 +30,8 @@ public class CreateDeadlineCommand extends Command {
 
     /**
      * Executes the CreateDeadlineCommand by parsing the user input to create a new
-     * Deadline task.
-     * The command expects the input to be in the format: "deadline <description>
-     * /by <due>".
-     * The due date must be in the format YYYY-MM-DD.
+     * Deadline task. The command expects the input to be in the format: "deadline
+     * <description> /by <due>". The due date must be in the format YYYY-MM-DD.
      *
      * @param tasks   The TaskList object that stores all tasks.
      * @param storage The Storage object that handles saving and loading tasks from

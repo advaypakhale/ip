@@ -46,8 +46,7 @@ public class MainWindow extends AnchorPane {
         message += "Hello! I'm Bob, but you can call me Bob.\n";
         message += "What can I do for you on this fine day?";
 
-        dialogContainer.getChildren().add(
-                DialogBox.getBobDialog(message, bobImage));
+        dialogContainer.getChildren().add(DialogBox.getBobDialog(message, bobImage));
     }
 
     /**
@@ -59,15 +58,14 @@ public class MainWindow extends AnchorPane {
 
     /**
      * Creates two dialog boxes, one echoing user input and the other containing
-     * Bob's reply and then appends them to
-     * the dialog container. Clears the user input after processing.
+     * Bob's reply and then appends them to the dialog container. Clears the user
+     * input after processing.
      */
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
         String response = bob.getResponse(input);
-        dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage),
+        dialogContainer.getChildren().addAll(DialogBox.getUserDialog(input, userImage),
                 DialogBox.getBobDialog(response, bobImage));
         userInput.clear();
 
