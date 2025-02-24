@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * A GUI for Duke using FXML.
+ * A GUI for Bob using FXML.
  */
 public class Main extends Application {
 
@@ -27,7 +27,7 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.setMinHeight(220);
             stage.setMinWidth(417);
-            fxmlLoader.<MainWindow>getController().setBob(bob); // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setBob(bob); // inject the Bob instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
