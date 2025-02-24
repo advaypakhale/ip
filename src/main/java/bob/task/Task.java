@@ -40,7 +40,7 @@ public abstract class Task implements Comparable<Task> {
      * @return the status icon string
      */
     protected String getStatusIcon() {
-        return (isComplete ? "X" : " ");
+        return (isComplete ? "✓" : " ");
     }
 
     /**
@@ -114,7 +114,7 @@ public abstract class Task implements Comparable<Task> {
     /**
      * Returns a comparison date for implementing compareTo method.
      * Implementation varies by task type.
-     * 
+     *
      * @return comparison date for task
      */
     abstract public LocalDate getComparisonDate();
