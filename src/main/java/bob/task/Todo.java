@@ -56,7 +56,8 @@ public class Todo extends Task {
      * Compares this Todo task with another task for sorting purposes.
      *
      * @param other the task to compare with
-     * @return a negative integer, zero, or a positive integer as this task is less than, equal to, or greater than the other task
+     * @return a negative integer, zero, or a positive integer as this task is less
+     *         than, equal to, or greater than the other task
      */
     @Override
     public int compareTo(Task other) {

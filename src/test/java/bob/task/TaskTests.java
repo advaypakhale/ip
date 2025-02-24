@@ -152,6 +152,16 @@ class TaskTests {
             public String toFileString() {
                 return null;
             }
+
+            @Override
+            public LocalDate getComparisonDate() {
+                return LocalDate.now();
+            }
+
+            @Override
+            public int compareTo(Task other) {
+                return getComparisonDate().compareTo(other.getComparisonDate());
+            }
         }
     }
 }

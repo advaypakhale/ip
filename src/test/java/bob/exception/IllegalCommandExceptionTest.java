@@ -11,10 +11,9 @@ class IllegalCommandExceptionTest {
     void shouldFormatMessageWithDashes() {
         // Given
         String errorMessage = "Invalid command format";
-        String expectedFormattedMessage =
-                "-----------------------------\n" +
-                        "Invalid command format\n" +
-                        "-----------------------------";
+        String expectedFormattedMessage = "-----------------------------\n" +
+                "Invalid command format\n" +
+                "-----------------------------";
 
         // When
         IllegalCommandException exception = new IllegalCommandException(errorMessage);
@@ -27,10 +26,9 @@ class IllegalCommandExceptionTest {
     void shouldHandleEmptyMessage() {
         // Given
         String errorMessage = "";
-        String expectedFormattedMessage =
-                "-----------------------------\n" +
-                        "\n" +
-                        "-----------------------------";
+        String expectedFormattedMessage = "-----------------------------\n" +
+                "\n" +
+                "-----------------------------";
 
         // When
         IllegalCommandException exception = new IllegalCommandException(errorMessage);
@@ -43,10 +41,9 @@ class IllegalCommandExceptionTest {
     void shouldHandleMultilineMessage() {
         // Given
         String errorMessage = "Line 1\nLine 2\nLine 3";
-        String expectedFormattedMessage =
-                "-----------------------------\n" +
-                        "Line 1\nLine 2\nLine 3\n" +
-                        "-----------------------------";
+        String expectedFormattedMessage = "-----------------------------\n" +
+                "Line 1\nLine 2\nLine 3\n" +
+                "-----------------------------";
 
         // When
         IllegalCommandException exception = new IllegalCommandException(errorMessage);

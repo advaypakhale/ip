@@ -44,8 +44,7 @@ public class MainWindow extends AnchorPane {
         message += "What can I do for you on this fine day?";
 
         dialogContainer.getChildren().add(
-                DialogBox.getBobDialog(message, bobImage)
-        );
+                DialogBox.getBobDialog(message, bobImage));
     }
 
     /**
@@ -56,7 +55,8 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Bob's reply and then appends them to
+     * Creates two dialog boxes, one echoing user input and the other containing
+     * Bob's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML
@@ -65,8 +65,7 @@ public class MainWindow extends AnchorPane {
         String response = bob.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getBobDialog(response, bobImage)
-        );
+                DialogBox.getBobDialog(response, bobImage));
         userInput.clear();
 
         if (!bob.isActive()) {

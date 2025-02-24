@@ -30,8 +30,8 @@ public abstract class Command {
      * @param tasks   The task list to be manipulated by the command.
      * @param storage The storage to save or load data.
      * @throws IOException             If an input or output error occurs.
-     * @throws IllegalCommandException If the command is illegal or cannot be executed.
+     * @throws IllegalCommandException If the command is illegal or cannot be
+     *                                 executed.
      */
     public abstract String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException;
 }
-

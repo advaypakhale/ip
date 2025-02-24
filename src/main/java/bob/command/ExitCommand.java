@@ -28,7 +28,8 @@ public class ExitCommand extends Command {
      * @param storage The storage object for saving tasks
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving the tasks
-     * @throws IllegalCommandException If arguments are provided with the exit command
+     * @throws IllegalCommandException If arguments are provided with the exit
+     *                                 command
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

@@ -3,7 +3,8 @@ package bob.task;
 import java.time.LocalDate;
 
 /**
- * Represents a task that occurs over a specific time period with start and end dates.
+ * Represents a task that occurs over a specific time period with start and end
+ * dates.
  * Extends the base Task class by adding event duration functionality.
  */
 public class Event extends Task {
@@ -32,7 +33,8 @@ public class Event extends Task {
 
     /**
      * Returns a string representation of this Event task.
-     * The format is: [E][Status] Description (Event start: formatted_start_date | Event end: formatted_end_date)
+     * The format is: [E][Status] Description (Event start: formatted_start_date |
+     * Event end: formatted_end_date)
      *
      * @return formatted string representation of the event task
      */
@@ -44,7 +46,8 @@ public class Event extends Task {
 
     /**
      * Converts this Event task to a string format suitable for file storage.
-     * The format is: E | completion_status | description | ISO_start_date | ISO_end_date
+     * The format is: E | completion_status | description | ISO_start_date |
+     * ISO_end_date
      *
      * @return string representation for file storage
      */
@@ -69,7 +72,8 @@ public class Event extends Task {
      * Compares this Event task with another task for sorting purposes.
      *
      * @param other the task to compare with
-     * @return a negative integer, zero, or a positive integer as this task is less than, equal to, or greater than the other task
+     * @return a negative integer, zero, or a positive integer as this task is less
+     *         than, equal to, or greater than the other task
      */
     @Override
     public int compareTo(Task other) {
@@ -87,8 +91,8 @@ public class Event extends Task {
             if (other instanceof Event) {
                 Event otherEvent = (Event) other;
                 return this.end.compareTo(otherEvent.end) == 0
-                       ? this.description.compareTo(other.description)
-                       : this.end.compareTo(otherEvent.end);
+                        ? this.description.compareTo(other.description)
+                        : this.end.compareTo(otherEvent.end);
             } else {
                 return 1; // other must be a Deadline task
             }

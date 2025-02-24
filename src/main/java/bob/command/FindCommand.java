@@ -42,7 +42,8 @@ public class FindCommand extends Command {
         query = query.trim();
 
         if (query.isEmpty()) {
-            throw new IllegalArgumentException("I'm sorry, the proper usage of the find command is 'find <query>. Please try again.'");
+            throw new IllegalArgumentException(
+                    "I'm sorry, the proper usage of the find command is 'find <query>. Please try again.'");
         }
 
         ArrayList<Task> matchedTasks = tasks.findTask(query);

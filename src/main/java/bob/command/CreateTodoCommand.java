@@ -10,7 +10,8 @@ import java.io.IOException;
 
 /**
  * Represents a command to create a new Todo task.
- * This command processes user input to create and add a Todo task to the task list.
+ * This command processes user input to create and add a Todo task to the task
+ * list.
  */
 public class CreateTodoCommand extends Command {
     /**
@@ -23,9 +24,12 @@ public class CreateTodoCommand extends Command {
     }
 
     /**
-     * Executes the create todo command by creating a new Todo task and adding it to the task list.
-     * The task description is constructed from the user input, excluding the command word.
-     * The new task is then saved to storage and a confirmation message is displayed to the user.
+     * Executes the create todo command by creating a new Todo task and adding it to
+     * the task list.
+     * The task description is constructed from the user input, excluding the
+     * command word.
+     * The new task is then saved to storage and a confirmation message is displayed
+     * to the user.
      *
      * @param tasks   The task list to add the new todo task to
      * @param storage The storage system to save the updated task list

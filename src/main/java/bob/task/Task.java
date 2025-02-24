@@ -5,7 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Abstract base class for all task types in the system.
- * Provides common functionality for task management including completion status,
+ * Provides common functionality for task management including completion
+ * status,
  * description, and date formatting.
  */
 public abstract class Task implements Comparable<Task> {
@@ -58,7 +59,7 @@ public abstract class Task implements Comparable<Task> {
      * Marks the task as complete if it is not already completed.
      *
      * @return true if the task was successfully marked as complete,
-     * false if it was already complete
+     *         false if it was already complete
      */
     public boolean markAsDone() {
         if (this.isComplete) {
@@ -73,7 +74,7 @@ public abstract class Task implements Comparable<Task> {
      * Marks the task as incomplete if it is currently completed.
      *
      * @return true if the task was successfully marked as incomplete,
-     * false if it was already incomplete
+     *         false if it was already incomplete
      */
     public boolean markAsUndone() {
         if (!this.isComplete) {
@@ -119,4 +120,3 @@ public abstract class Task implements Comparable<Task> {
      */
     abstract public LocalDate getComparisonDate();
 }
-

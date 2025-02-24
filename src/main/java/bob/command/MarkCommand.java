@@ -8,7 +8,8 @@ import java.io.IOException;
 
 /**
  * Represents a command to mark a task as done in the task list.
- * This command allows users to mark a specific task as completed by providing its index.
+ * This command allows users to mark a specific task as completed by providing
+ * its index.
  */
 public class MarkCommand extends Command {
     /**
@@ -29,8 +30,10 @@ public class MarkCommand extends Command {
      * @param storage The storage handler for saving tasks
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
-     * @throws IllegalCommandException If the command format is invalid, if the index is not a number,
-     *                                 if the task is already marked as done, or if the index is out of bounds
+     * @throws IllegalCommandException If the command format is invalid, if the
+     *                                 index is not a number,
+     *                                 if the task is already marked as done, or if
+     *                                 the index is out of bounds
      */
     @Override
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {

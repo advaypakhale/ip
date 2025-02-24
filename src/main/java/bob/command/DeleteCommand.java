@@ -24,13 +24,15 @@ public class DeleteCommand extends Command {
 
     /**
      * Executes the delete command to remove a task from the task list.
-     * The command format should be "delete <index>" where index is a valid task number.
+     * The command format should be "delete <index>" where index is a valid task
+     * number.
      *
      * @param tasks   The TaskList containing all tasks
      * @param storage The Storage object to save changes to file
      * @return A string containing the success message or an error message
      * @throws IOException             If there is an error saving to storage
-     * @throws IllegalCommandException If the command format is invalid, index is not a number,
+     * @throws IllegalCommandException If the command format is invalid, index is
+     *                                 not a number,
      *                                 task list is empty, or index is out of bounds
      */
     @Override
@@ -44,7 +46,8 @@ public class DeleteCommand extends Command {
         try {
             idx = Integer.parseInt(userInput[1]) - 1;
         } catch (NumberFormatException e) {
-            throw new IllegalCommandException("I'm sorry, the index of the task to delete must be a number. The proper usage of the delete command is 'delete <index>'. Please try again!");
+            throw new IllegalCommandException(
+                    "I'm sorry, the index of the task to delete must be a number. The proper usage of the delete command is 'delete <index>'. Please try again!");
         }
 
         if (tasks.size() == 0) {

@@ -57,7 +57,7 @@ public class TaskList implements Iterable<Task> {
      *
      * @param index the index of the task to mark as complete
      * @return true if the task was successfully marked as complete,
-     * false if it was already complete
+     *         false if it was already complete
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsDone(int index) {
@@ -71,7 +71,7 @@ public class TaskList implements Iterable<Task> {
      *
      * @param index the index of the task to mark as incomplete
      * @return true if the task was successfully marked as incomplete,
-     * false if it was already incomplete
+     *         false if it was already incomplete
      * @throws IndexOutOfBoundsException if index is out of range
      */
     public boolean markAsUndone(int index) {
@@ -115,8 +115,9 @@ public class TaskList implements Iterable<Task> {
      * The search is case-insensitive.
      *
      * @param query The search string to match against task descriptions
-     * @return An ArrayList containing all tasks whose descriptions contain the query string
-     * Returns an empty ArrayList if no matching tasks are found
+     * @return An ArrayList containing all tasks whose descriptions contain the
+     *         query string
+     *         Returns an empty ArrayList if no matching tasks are found
      * @throws NullPointerException if the query parameter is null
      * @see Task
      */

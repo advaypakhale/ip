@@ -8,7 +8,8 @@ import bob.task.TaskList;
 
 /**
  * Class that serves as the core internal engine of the Bob chatbot.
- * Coordinates between the UI, storage, parser and task components to provide task management functionality.
+ * Coordinates between the UI, storage, parser and task components to provide
+ * task management functionality.
  */
 public class Bob {
     /**
@@ -17,7 +18,8 @@ public class Bob {
     private static final String FILE_PATH_BASE = "./data/";
 
     /**
-     * Counter based on how many Bob instances are created, in order to save generated TaskLists.
+     * Counter based on how many Bob instances are created, in order to save
+     * generated TaskLists.
      * Used to create unique file paths for each Bob instance.
      */
     private static int counter = 0;
@@ -43,9 +45,12 @@ public class Bob {
     private Boolean isActive = true;
 
     /**
-     * Creates a new Bob application instance with an automatically generated file path.
-     * Initializes all components (UI, storage, parser, task list) and loads any existing tasks.
-     * The file path is generated using a counter to ensure unique storage locations for multiple instances.
+     * Creates a new Bob application instance with an automatically generated file
+     * path.
+     * Initializes all components (UI, storage, parser, task list) and loads any
+     * existing tasks.
+     * The file path is generated using a counter to ensure unique storage locations
+     * for multiple instances.
      */
     public Bob() {
         this.tasks = new TaskList();
@@ -58,10 +63,12 @@ public class Bob {
 
     /**
      * Creates a new Bob application instance with a specified file path.
-     * Initializes all components (UI, storage, parser, task list) and loads any existing tasks
+     * Initializes all components (UI, storage, parser, task list) and loads any
+     * existing tasks
      * from the specified location.
      *
-     * @param filePath The specific file path where tasks should be stored and loaded from
+     * @param filePath The specific file path where tasks should be stored and
+     *                 loaded from
      */
     public Bob(String filePath) {
         this.tasks = new TaskList();
@@ -78,7 +85,8 @@ public class Bob {
      * 4. Handling any errors that occur during processing
      *
      * @param userInput The raw input string from the user
-     * @return A response string that contains either the command execution result or an error message
+     * @return A response string that contains either the command execution result
+     *         or an error message
      */
     public String getResponse(String userInput) {
         try {
@@ -104,7 +112,8 @@ public class Bob {
      * Checks if the Bob application is still running.
      * This status changes to false when an ExitCommand is processed.
      *
-     * @return true if the application is still running, false if it should terminate
+     * @return true if the application is still running, false if it should
+     *         terminate
      */
     public boolean isActive() {
         return isActive;
