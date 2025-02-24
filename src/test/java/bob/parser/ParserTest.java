@@ -25,63 +25,63 @@ public class ParserTest {
 
     @Test
     void parseUserInput_exitCommand_returnsExitCommand() throws IllegalCommandException {
-        String[] input = {"bye"};
+        String[] input = { "bye" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(ExitCommand.class, result);
     }
 
     @Test
     void parseUserInput_listCommand_returnsListCommand() throws IllegalCommandException {
-        String[] input = {"list"};
+        String[] input = { "list" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(ListCommand.class, result);
     }
 
     @Test
     void parseUserInput_markCommand_returnsMarkCommand() throws IllegalCommandException {
-        String[] input = {"mark", "1"};
+        String[] input = { "mark", "1" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(MarkCommand.class, result);
     }
 
     @Test
     void parseUserInput_unmarkCommand_returnsUnmarkCommand() throws IllegalCommandException {
-        String[] input = {"unmark", "1"};
+        String[] input = { "unmark", "1" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(UnmarkCommand.class, result);
     }
 
     @Test
     void parseUserInput_todoCommand_returnsCreateTodoCommand() throws IllegalCommandException {
-        String[] input = {"todo", "Buy groceries"};
+        String[] input = { "todo", "Buy groceries" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(CreateTodoCommand.class, result);
     }
 
     @Test
     void parseUserInput_deadlineCommand_returnsCreateDeadlineCommand() throws IllegalCommandException {
-        String[] input = {"deadline", "Submit report", "2025-02-15"};
+        String[] input = { "deadline", "Submit report", "2025-02-15" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(CreateDeadlineCommand.class, result);
     }
 
     @Test
     void parseUserInput_eventCommand_returnsCreateEventCommand() throws IllegalCommandException {
-        String[] input = {"event", "Team meeting", "2025-02-15", "2025-02-16"};
+        String[] input = { "event", "Team meeting", "2025-02-15", "2025-02-16" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(CreateEventCommand.class, result);
     }
 
     @Test
     void parseUserInput_deleteCommand_returnsDeleteCommand() throws IllegalCommandException {
-        String[] input = {"delete", "1"};
+        String[] input = { "delete", "1" };
         Command result = parser.parseUserInput(input);
         assertInstanceOf(DeleteCommand.class, result);
     }
 
     @Test
     void parseUserInput_invalidCommand_throwsIllegalCommandException() {
-        String[] input = {"invalid"};
+        String[] input = { "invalid" };
         assertThrows(IllegalCommandException.class, () -> parser.parseUserInput(input));
     }
 }

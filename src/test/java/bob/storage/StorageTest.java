@@ -109,8 +109,7 @@ class StorageTest {
         Files.write(storageFile, List.of(
                 "T | N | Valid todo",
                 "Invalid line",
-                "T | N | Another valid todo"
-        ));
+                "T | N | Another valid todo"));
 
         storage.load();
 
@@ -121,8 +120,7 @@ class StorageTest {
     void load_withMalformedDate_skipsTask() throws IOException {
         Files.write(storageFile, List.of(
                 "D | N | Report | invalid-date",
-                "T | N | Valid todo"
-        ));
+                "T | N | Valid todo"));
 
         storage.load();
 
