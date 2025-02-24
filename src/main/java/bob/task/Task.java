@@ -118,5 +118,5 @@ public abstract class Task implements Comparable<Task> {
      *
      * @return comparison date for task
      */
-    abstract public LocalDate getComparisonDate();
+    public abstract LocalDate getComparisonDate();
 }

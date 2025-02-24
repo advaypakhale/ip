@@ -60,7 +60,7 @@ public class Event extends Task {
     /**
      * Returns the date to use for comparison when sorting tasks.
      * For Event tasks, this is the start date of the event.
-     * 
+     *
      * @return the date to use for comparison
      */
     @Override

@@ -1,6 +1,10 @@
 package bob.storage;
 
-import bob.task.*;
+import bob.task.TaskList;
+import bob.task.Deadline;
+import bob.task.Event;
+import bob.task.Todo;
+import bob.task.Task;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -68,11 +72,11 @@ public class Storage {
      * Loads tasks from the storage file into the task list.
      * Skips any malformed lines in the file with a warning message.
      * The file should contain one task per line in the following format:
-     * 
+     *
      * <pre>
      * TYPE | COMPLETION_STATUS | DESCRIPTION [| DATE1 [| DATE2]]
      * </pre>
-     * 
+     *
      * where:
      * <ul>
      * <li>TYPE is T (Todo), D (Deadline), or E (Event)</li>
@@ -125,8 +129,11 @@ public class Storage {
                             LocalDate endDate = LocalDate.parse(parts[4]);
                             yield new Event(description, startDate, endDate);
                         } catch (DateTimeParseException e) {
-                            System.err.println("Warning: Skipping malformed event dates in file: " +
-                                    parts[3] + " to " + parts[4]);
+                            System.err.println(
+                                    "Warning: Skipping malformed event dates in file: "
+                                            + parts[3]
+                                            + " to "
+                                            + parts[4]);
                             yield null;
                         }
                     }

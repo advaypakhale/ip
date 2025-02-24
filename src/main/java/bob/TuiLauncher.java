@@ -18,6 +18,16 @@ public class TuiLauncher {
     private final Bob bob;
 
     /**
+     * Creates a new Bob application instance.
+     * Initializes all components (UI, storage, parser, task list) and loads any
+     * existing tasks.
+     */
+    public TuiLauncher() {
+        this.ui = new Ui();
+        this.bob = new Bob();
+    }
+
+    /**
      * Entry point of the application.
      * Creates a launcher instance and starts the application loop.
      *
@@ -26,16 +36,6 @@ public class TuiLauncher {
     public static void main(String[] args) {
         TuiLauncher launcher = new TuiLauncher();
         launcher.run();
-    }
-
-    /**
-     * Creates a new Bob application instance.
-     * Initializes all components (UI, storage, parser, task list) and loads any
-     * existing tasks.
-     */
-    public TuiLauncher() {
-        this.ui = new Ui();
-        this.bob = new Bob();
     }
 
     /**

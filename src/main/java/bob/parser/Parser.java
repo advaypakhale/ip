@@ -1,6 +1,17 @@
 package bob.parser;
 
-import bob.command.*;
+import bob.command.CreateDeadlineCommand;
+import bob.command.CreateEventCommand;
+import bob.command.CreateTodoCommand;
+import bob.command.DeleteCommand;
+import bob.command.EmptyInputCommand;
+import bob.command.ExitCommand;
+import bob.command.FindCommand;
+import bob.command.ListCommand;
+import bob.command.MarkCommand;
+import bob.command.UnmarkCommand;
+import bob.command.Command;
+
 import bob.exception.IllegalCommandException;
 
 /**
