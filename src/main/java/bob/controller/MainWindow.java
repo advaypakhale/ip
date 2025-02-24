@@ -35,13 +35,8 @@ public class MainWindow extends AnchorPane {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
 
         String message = "";
-        String logo = """
-                    ____        __
-                   / ** )**__  / /_\s
-                  / **  / ** \\/ __ \\
-                 / /_/ / /_/ / /_/ /
-                /_____/\\____/_.___/\s
-                """;
+        String logo = "    ____        __\n" + "   / __ )____  / /_\n" + "  / __  / __ \\/ __ \\ \n"
+                + " / /_/ / /_/ / /_/ /\n" + "/_____/\\____/_.___/\n";
         message += logo;
         message += "Hello! I'm Bob, but you can call me Bob.\n";
         message += "What can I do for you on this fine day?";
