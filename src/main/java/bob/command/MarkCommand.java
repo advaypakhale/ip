@@ -65,6 +65,15 @@ public class MarkCommand extends Command {
             }
         }
 
+        char[] charTaskString = taskString.toCharArray();
+        for (int i = 0; i < charTaskString.length; i++) {
+            if (charTaskString[i] == ' ') {
+                charTaskString[i] = '✓';
+                break;
+            }
+        }
+        taskString = String.valueOf(charTaskString);
+
         message.append("Nice! I've marked this task as done:\n").append(taskString);
         storage.save();
         return message.toString();

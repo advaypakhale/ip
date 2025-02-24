@@ -64,6 +64,15 @@ public class UnmarkCommand extends Command {
             }
         }
 
+        char[] charTaskString = taskString.toCharArray();
+        for (int i = 0; i < charTaskString.length; i++) {
+            if (charTaskString[i] == '✓') {
+                charTaskString[i] = ' ';
+                break;
+            }
+        }
+
+        taskString = String.valueOf(charTaskString);
         message.append("I have marked this task as not done, get on it!\n").append(taskString);
         storage.save();
         return message.toString();
