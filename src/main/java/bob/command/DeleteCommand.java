@@ -38,7 +38,7 @@ public class DeleteCommand extends Command {
     public String execute(TaskList tasks, Storage storage) throws IOException, IllegalCommandException {
         if (userInput.length != 2) {
             throw new IllegalCommandException(
-                    "I'm sorry, the proper usage of the delete bob.command is 'delete <index>'. Please try again!");
+                    "I'm sorry, the proper usage of the delete command is 'delete <index>'. Please try again!");
         }
 
         int idx;

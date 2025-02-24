@@ -205,6 +205,6 @@ class CommandTest {
         EmptyInputCommand command = new EmptyInputCommand(input);
         command.execute(mockTaskList, mockUi, mockStorage);
 
-        verify(mockUi).wrapText("Please enter a bob.command. I'm happy to help!");
+        verify(mockUi).wrapText("Please enter a command. I'm happy to help!");
     }
 }
