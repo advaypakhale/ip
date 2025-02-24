@@ -71,3 +71,17 @@ ___
       not, it suggests something that actively breaks your chain of thought while coding. So in the end I disabled "
       ghost suggestions" in my IDE, and only allowed Copilot suggestions through the normal code suggestion panel that
       pops up when you are only using an LSP for example.
+
+## Week 6
+
+### Claude 3.5 Sonnet
+
+- **Used for**
+    - `A-UserGuide`: All the `Command` subclasses' source code was passed to Claude for it to generate the section of
+      the user guide on technical documentation/command use.
+- **Evaluation**
+    - Claude was able to infer the expected syntax of the commands and even edge cases mostly correctly, requiring
+      little to no modification for its generated content.
+    - However, it did hallucinate the output of the `Task` creation commands, since this output was actually defined
+      within the `Task` classes, which were not passed to Claude. In hindsight, passing these files to Claude could
+      have led it to infer the expected outputs correctly, although in this case the output was just corrected manually.
